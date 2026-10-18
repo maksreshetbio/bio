@@ -22,6 +22,7 @@ nav{background:#101813f2}
 a{color:#a6e3b8}
 @media print{body{background:#fff;color:#111}.card,.week,.stat,.task,.checkline,.callout,.cod{background:#fff;color:#111}.footer{background:#fff}.schedule th{background:#eee;color:#111}}
 
+.daycards{display:grid;gap:10px}.daycard{display:grid;grid-template-columns:90px 1fr auto;gap:12px;align-items:start;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:14px}.daycard.done .daytitle{text-decoration:line-through;color:var(--muted)}.daytime{font-size:1.05rem;font-weight:850;color:var(--green)}.daydesc{color:var(--muted);white-space:pre-wrap}.dayactions{display:flex;gap:6px;flex-wrap:wrap}.subject-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.subject-chip{border:1px solid var(--line);border-radius:999px;padding:6px 11px;background:var(--card);cursor:pointer}.subject-chip.active{background:#20392a;border-color:var(--green2);color:#a6e3b8}.score-subject{font-size:.8rem;padding:3px 7px;border-radius:7px;background:#20392a;color:#a6e3b8}.todo-row{display:flex;gap:9px;align-items:flex-start;padding:10px;border-bottom:1px solid var(--line)}.todo-row input{margin-top:6px}.todo-row.done span{text-decoration:line-through;color:var(--muted)}dialog{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:18px;width:min(560px,calc(100% - 24px));padding:22px}dialog::backdrop{background:#0009}.modal-fields{display:grid;gap:12px}.modal-fields label{display:grid;gap:5px}.note-item{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:9px;white-space:pre-wrap}.note-item small{color:var(--muted)}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,7 +32,7 @@ a{color:#a6e3b8}
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 </head><body>
 <header class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Личный учебный кабинет · 2026—2027</div><h1>Олимпиадная<br>биология</h1><p>Рабочий план подготовки к ВсОШ по биологии и экологии до сентября 2027 года: недельный календарь, темы, задания, контрольные точки и чек-листы.</p><span class="pill">🌿 Биология — приоритет</span><span class="pill">🔬 Практика каждую неделю</span><span class="pill">🎯 Цель — сильный результат</span></div><div class="glass"><small>Плановый период</small><b>12 месяцев</b><small>Октябрь 2026 — сентябрь 2027</small><div style="margin-top:15px"><small>Прогресс по чек-листам</small><div class="progress" style="background:#ffffff35;margin-top:7px"><span id="hp"></span></div><small id="hpt">0%</small></div></div></div></header>
-<nav><div class="wrap nav"><a href="#start">Старт</a><a href="#sync">Синхронизация</a><a href="#week">Расписание</a><a href="#roadmap">План по неделям</a><a href="#codifier">Кодификатор</a><a href="#method">Методика</a><a href="#review">Контроль</a><a href="#workouts">Тренировки</a><a href="#scores">Баллы</a></div></nav>
+<nav><div class="wrap nav"><a href="#start">Старт</a><a href="#sync">Синхронизация</a><a href="#week">Расписание</a><a href="#roadmap">План по неделям</a><a href="#codifier">Кодификатор</a><a href="#method">Методика</a><a href="#review">Контроль</a><a href="#workouts">Тренировки</a><a href="#dayplan">План дня</a><a href="#notes">Заметки и дела</a><a href="#scores">Пробники ЕГЭ</a></div></nav>
 <main class="wrap">
 <section id="start" class="section"><div class="head"><div><h2>Твой рабочий кабинет</h2><p>Отмечай сделанное — прогресс сохранится в этом браузере.</p></div><div class="controls"><button class="btn" id="export">Экспорт прогресса</button><button class="btn" onclick="window.print()">Печать / PDF</button><button class="btn" id="reset">Сбросить чек-листы</button></div></div><div class="card"><div class="stats"><div class="stat"><b id="done">0</b><span>выполнено</span></div><div class="stat"><b id="total">0</b><span>всего пунктов</span></div><div class="stat"><b id="pct">0%</b><span>общий прогресс</span></div><div class="stat"><b>80%</b><span>ориентир перехода</span></div></div><div class="progress" style="margin-top:14px"><span id="mp"></span></div><p class="small">Отмечай пункт только после самостоятельного выполнения и проверки. Процент — ориентир, а не самоцель.</p></div><div class="callout" style="margin-top:13px"><b>Как пользоваться:</b> выбери текущую неделю, выполни задания и поставь галочки. Если не получилось — запиши ошибку, возьми подсказку и попробуй снова. В конце недели проверь критерий готовности. Если результат слабый, повтори тему, не удваивая нагрузку.</div></section>
 <section id="sync" class="section">
@@ -122,40 +123,37 @@ a{color:#a6e3b8}
     </div>
   </div>
 </section>
+<section id="dayplan" class="section">
+ <div class="head"><div><h2>План дня</h2><p>Карточки с временем и описанием. Задачи сохраняются за выбранной датой; невыполненные не переносятся автоматически.</p></div></div>
+ <div class="grid"><div class="card s4"><h3>Добавить в план</h3><div class="modal-fields">
+ <label>Дата<input class="field" type="date" id="dpDate"></label><label>Время<input class="field" type="time" id="dpTime" value="16:00"></label>
+ <label>Название<input class="field" id="dpTitle" placeholder="Например, вариант по химии"></label><label>Описание<textarea class="field" id="dpDesc" placeholder="Что сделать, сколько времени, материалы"></textarea></label>
+ <label>Или выбрать задачу из недельного плана<select class="field" id="dpRoadmap"><option value="">Не выбирать</option></select></label>
+ <button class="btn primary" id="dpAdd">Добавить карточку</button><span class="small" id="dpMsg"></span></div></div>
+ <div class="card s8"><div class="head"><div><h3 id="dpHeading">Задачи на сегодня</h3><p class="small">Меняй дату, чтобы посмотреть другой день.</p></div><label>День<input class="field" type="date" id="dpViewDate"></label></div><div id="dayCards" class="daycards"><p class="small">Пока нет задач на этот день.</p></div></div></div>
+</section>
+<section id="notes" class="section"><div class="head"><div><h2>Заметки и список дел</h2><p>Отдельные заметки для мыслей и список задач с отметками выполнения.</p></div></div>
+ <div class="grid"><div class="card s6"><h3>Новая заметка</h3><label>Заголовок<input class="field" id="noteTitle" placeholder="Например, разобрать ошибки пробника" style="width:100%"></label><label>Текст<textarea class="field" id="noteBody" placeholder="Запиши идеи, ошибки или важные мысли"></textarea></label><p><button class="btn primary" id="noteAdd">Сохранить заметку</button> <span class="small" id="noteMsg"></span></p><div id="notesList"></div></div>
+ <div class="card s6"><h3>Список дел</h3><div class="controls"><input class="field" id="todoText" placeholder="Что нужно сделать?" style="flex:1;min-width:180px"><button class="btn primary" id="todoAdd">Добавить</button></div><p class="small">При желании пункт можно добавить в план дня.</p><div id="todoList"></div></div></div>
+</section>
 <section id="scores" class="section">
-  <div class="head"><div><h2>Мониторинг баллов</h2><p>Отслеживай не только процент, но и динамику по этапам и тематическим вариантам.</p></div></div>
-  <div class="grid">
-    <div class="card s6">
-      <h3>Добавить результат</h3>
-      <div class="grid">
-        <div class="s6"><label for="scDate">Дата</label><input class="field" id="scDate" type="date" style="width:100%"></div>
-        <div class="s6"><label for="scType">Тип работы</label><select class="field" id="scType" style="width:100%"><option>Тематическая работа</option><option>Школьный этап</option><option>Муниципальный этап</option><option>Региональный этап</option><option>Полный вариант</option><option>Экология</option><option>Другое</option></select></div>
-        <div class="s6"><label for="scPoints">Набрано баллов</label><input class="field" id="scPoints" type="number" min="0" step="0.5" placeholder="32" style="width:100%"></div>
-        <div class="s6"><label for="scMax">Максимум баллов</label><input class="field" id="scMax" type="number" min="0.5" step="0.5" placeholder="50" style="width:100%"></div>
-        <div class="s12"><label for="scTopic">Раздел / тема</label><input class="field" id="scTopic" placeholder="Например: генетика, ботаника, смешанный вариант" style="width:100%"></div>
-        <div class="s12"><label for="scNotes">Ошибки и следующий шаг</label><textarea class="field" id="scNotes" placeholder="Какие баллы потеряны и что отработать"></textarea></div>
-      </div>
-      <p><button class="btn primary" id="saveScore">Сохранить результат</button> <span class="small" id="scMsg"></span></p>
-      <p class="small">Сравнивай сопоставимые работы: баллы разных этапов и вариантов могут иметь разную сложность и шкалу.</p>
-    </div>
-    <div class="card s6">
-      <h3>Сводка результатов</h3>
-      <div class="stats" style="grid-template-columns:repeat(2,1fr)">
-        <div class="stat"><b id="scCount">0</b><span>работ записано</span></div>
-        <div class="stat"><b id="scBest">—</b><span>лучший процент</span></div>
-        <div class="stat"><b id="scLatest">—</b><span>последний результат</span></div>
-        <div class="stat"><b id="scMean">—</b><span>средний процент</span></div>
-      </div>
-      <h4 style="margin-bottom:6px">Динамика процентов</h4>
-      <div id="scoreChart" style="display:grid;gap:9px"><p class="small">Добавь несколько результатов — здесь появится динамика.</p></div>
-    </div>
-    <div class="card s12">
-      <div class="head"><div><h3>История результатов</h3><p class="small">В каждой записи есть тема и следующий шаг — используй их для плана повторения.</p></div><button class="btn" id="exportScores">Экспорт результатов</button></div>
-      <div class="tablewrap"><table class="schedule" style="min-width:760px"><thead><tr><th>Дата</th><th>Тип</th><th>Баллы</th><th>Процент</th><th>Тема / следующий шаг</th><th></th></tr></thead><tbody id="scoreRows"><tr><td colspan="6" class="small">Пока нет результатов.</td></tr></tbody></table></div>
-    </div>
-  </div>
+  <div class="head"><div><h2>Трекер пробников ЕГЭ</h2><p>Отдельная история по русскому языку, профильной математике, химии и биологии.</p></div></div>
+  <div class="subject-tabs" id="scoreTabs"><button class="subject-chip active" data-subject="all">Все предметы</button><button class="subject-chip" data-subject="Русский язык">Русский язык</button><button class="subject-chip" data-subject="Профильная математика">Профильная математика</button><button class="subject-chip" data-subject="Химия">Химия</button><button class="subject-chip" data-subject="Биология">Биология</button></div>
+  <div class="grid"><div class="card s6"><h3 id="scoreFormTitle">Добавить пробник</h3><input type="hidden" id="scEditId"><div class="grid">
+    <div class="s6"><label for="scSubject">Предмет</label><select class="field" id="scSubject" style="width:100%"><option>Русский язык</option><option>Профильная математика</option><option>Химия</option><option>Биология</option></select></div>
+    <div class="s6"><label for="scDate">Дата</label><input class="field" id="scDate" type="date" style="width:100%"></div>
+    <div class="s6"><label for="scType">Тип работы</label><select class="field" id="scType" style="width:100%"><option>Полный пробник</option><option>Тематический пробник</option><option>Часть варианта</option><option>Диагностика</option></select></div>
+    <div class="s6"><label for="scPoints">Набрано первичных / баллов за задания</label><input class="field" id="scPoints" type="number" min="0" step="0.5" placeholder="Баллы" style="width:100%"></div>
+    <div class="s6"><label for="scMax">Максимум первичных / набранных баллов</label><input class="field" id="scMax" type="number" min="0.5" step="0.5" placeholder="Например, 58" style="width:100%"></div>
+    <div class="s6"><label for="scTestPoints">Тестовый балл (если известен, из 100)</label><input class="field" id="scTestPoints" type="number" min="0" max="100" step="1" placeholder="Например, 78" style="width:100%"></div>
+    <div class="s6"><label for="scTopic">Вариант / тема</label><input class="field" id="scTopic" placeholder="Автор, номер варианта" style="width:100%"></div>
+    <div class="s12"><label for="scNotes">Ошибки и следующий шаг</label><textarea class="field" id="scNotes" placeholder="Какие задания не получились, что повторить"></textarea></div>
+  </div><p><button class="btn primary" id="saveScore">Сохранить пробник</button> <button class="btn" id="scCancelEdit" hidden>Отмена редактирования</button> <span class="small" id="scMsg"></span></p><p class="small">Записывай каждый пробник отдельно: набранные и максимальные первичные баллы, а при наличии — официальный тестовый балл из 100. Старые записи сохраняются.</p></div>
+  <div class="card s6"><h3>Сводка по выбранному предмету</h3><div class="stats" style="grid-template-columns:repeat(2,1fr)"><div class="stat"><b id="scCount">0</b><span>пробников</span></div><div class="stat"><b id="scBest">—</b><span>лучший результат, %</span></div><div class="stat"><b id="scLatest">—</b><span>последний результат</span></div><div class="stat"><b id="scMean">—</b><span>средний результат, %</span></div></div><h4 style="margin-bottom:6px">Динамика результатов</h4><div id="scoreChart" style="display:grid;gap:9px"><p class="small">Добавь первый пробник.</p></div></div>
+  <div class="card s12"><div class="head"><div><h3>История пробников</h3><p class="small">Можно редактировать записи, удалять их и экспортировать историю.</p></div><button class="btn" id="exportScores">Экспорт результатов</button></div><div class="tablewrap"><table class="schedule" style="min-width:850px"><thead><tr><th>Дата</th><th>Предмет</th><th>Тип</th><th>Результат</th><th>Вариант / ошибки</th><th>Действия</th></tr></thead><tbody id="scoreRows"><tr><td colspan="6" class="small">Пока нет пробников.</td></tr></tbody></table></div></div></div>
 </section>
 
+<dialog id="editDialog"><form method="dialog" id="editDialogForm"><h3 id="editDialogTitle">Редактирование карточки</h3><div id="editDialogFields" class="modal-fields"></div><div class="controls" style="margin-top:16px"><button class="btn primary" id="editDialogSave" type="button">Сохранить изменения</button><button class="btn" value="cancel">Отмена</button></div></form></dialog>
 </main><footer class="footer"><div class="wrap footergrid"><div><b>Важно о БВИ</b><p class="small">План не гарантирует БВИ. Ближе к поступлению проверь перечень олимпиад, профиль, требования конкретного вуза и действующие правила приёма.</p></div><div><b>Автономный HTML</b><p class="small">Чек-листы и заметки сохраняются локально в браузере. «Экспорт прогресса» создаёт резервную копию. Можно открыть файл без интернета.</p></div></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="./config.js"></script>
@@ -178,7 +176,7 @@ box.appendChild(d)});attach();progress()}
 function attach(){document.querySelectorAll("[data-check]").forEach(el=>{if(el.dataset.bound)return;el.dataset.bound="1";el.addEventListener("change",()=>{put(el.dataset.check,el.checked);let lab=el.closest(".task");if(lab)lab.classList.toggle("done",el.checked);let det=el.closest("details.week");if(det){let inputs=[...det.querySelectorAll("[data-check]")],s=det.querySelector(".status");if(s)s.textContent=inputs.length&&inputs.every(x=>x.checked)?"✓ Выполнено":"Открыть план"}progress()})})}
 function progress(){let all=roadmap.reduce((n,r,i)=>n+r.tasks.length,0),done=0;roadmap.forEach((r,i)=>r.tasks.forEach((_,j)=>{if(get(`w-${i}-${j}`))done++}));document.querySelectorAll('input[data-check]').forEach(x=>{if(!x.dataset.check.startsWith("w-")){all++;if(get(x.dataset.check))done++}});let p=all?Math.round(done/all*100):0;document.getElementById("done").textContent=done;document.getElementById("total").textContent=all;document.getElementById("pct").textContent=p+"%";document.getElementById("mp").style.width=p+"%";document.getElementById("hp").style.width=p+"%";document.getElementById("hpt").textContent=`${done} из ${all} пунктов · ${p}%`}
 let sel=document.getElementById("month");[...new Set(roadmap.map(r=>r.month))].forEach(m=>{let o=document.createElement("option");o.value=m;o.textContent=m;sel.appendChild(o)});sel.addEventListener("change",render);document.getElementById("search").addEventListener("input",render);document.getElementById("expand").onclick=()=>document.querySelectorAll("#weeks details").forEach(d=>d.open=true);document.getElementById("collapse").onclick=()=>document.querySelectorAll("#weeks details").forEach(d=>d.open=false);
-document.getElementById("reset").onclick=()=>{if(!confirm("Сбросить чек-листы, заметки, тренировки и результаты в этом браузере?"))return;let keys=[];for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(k&&k.startsWith(prefix))keys.push(k)}keys.forEach(k=>localStorage.removeItem(k));["n1","n2","n3"].forEach(id=>document.getElementById(id).value="");render();document.querySelectorAll("[data-check]").forEach(x=>x.checked=false);document.querySelectorAll("[data-workout-check]").forEach(x=>x.checked=false);progress();workoutRender();scoreRender();syncSchedule()};
+document.getElementById("reset").onclick=()=>{if(!confirm("Сбросить только отметки чек-листов? Заметки, пробники, тренировки и план дня останутся."))return;let keys=[];for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(!k||!k.startsWith(prefix))continue;const short=k.slice(prefix.length);if(/^w-\d+-\d+$/.test(short)||/^r[1-4]$/.test(short)||short.startsWith("workout-week-"))keys.push(k)}keys.forEach(k=>localStorage.removeItem(k));render();document.querySelectorAll("[data-check]").forEach(x=>x.checked=false);document.querySelectorAll("[data-workout-check]").forEach(x=>x.checked=false);progress();workoutRender();scoreRender();if(typeof dayRender==="function")dayRender();if(typeof notesRender==="function")notesRender();syncSchedule()};
 document.getElementById("export").onclick=()=>{let data={exportedAt:new Date().toISOString(),checks:{},notes:{},workouts:readList("workouts"),scores:readList("scores")};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(k&&k.startsWith(prefix))data.checks[k.slice(prefix.length)]=localStorage.getItem(k)}["n1","n2","n3"].forEach(id=>data.notes[id]=document.getElementById(id).value);let a=document.createElement("a"),u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));a.href=u;a.download="olimpiadnaya-biologiya-progress.json";a.click();URL.revokeObjectURL(u)};
 document.getElementById("saveNotes").onclick=()=>{["n1","n2","n3"].forEach(id=>put("note-"+id,document.getElementById(id).value));document.getElementById("savedmsg").textContent="Сохранено"};
 ["n1","n2","n3"].forEach(id=>{try{document.getElementById(id).value=localStorage.getItem(prefix+"note-"+id)||""}catch(e){}});render();
@@ -189,6 +187,7 @@ const writeList = (key, val) => { try { localStorage.setItem(prefix+key, JSON.st
 const todayISO = () => { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; };
 document.getElementById("woDate").value = todayISO();
 document.getElementById("scDate").value = todayISO();
+document.getElementById("dpDate").value = todayISO(); document.getElementById("dpViewDate").value = todayISO();
 function workoutRender(){
  const arr=readList("workouts").sort((a,b)=>b.date.localeCompare(a.date));
  document.getElementById("woCount").textContent=arr.length;
@@ -207,28 +206,65 @@ document.getElementById("saveWorkout").onclick=()=>{
  const arr=readList("workouts");arr.push(obj);writeList("workouts",arr);["woPlan","woDuration","woEffort","woNotes"].forEach(id=>document.getElementById(id).value="");document.getElementById("woMsg").textContent="Сохранено";workoutRender();
 };
 document.getElementById("exportWorkouts").onclick=()=>downloadJson(readList("workouts"),"zhurnal-trenirovok.json");
+let activeScoreSubject="all";
 function scoreRender(){
- const arr=readList("scores").sort((a,b)=>a.date.localeCompare(b.date));
+ const all=readList("scores").map(x=>({...x,subject:x.subject||"Биология"})).sort((a,b)=>a.date.localeCompare(b.date));
+ const arr=all.filter(x=>activeScoreSubject==="all"||x.subject===activeScoreSubject);
  const pct=x=>Number(x.max)>0?100*Number(x.points)/Number(x.max):0;
+ const fmt=n=>Number(n).toLocaleString("ru-RU",{maximumFractionDigits:1});
+ const resultLabel=x=>`${esc(x.points)}/${esc(x.max)}${x.testPoints!==undefined&&x.testPoints!==null&&x.testPoints!==""?` · тестовый ${esc(x.testPoints)}/100`:""}`;
  document.getElementById("scCount").textContent=arr.length;
- document.getElementById("scBest").textContent=arr.length?Math.round(Math.max(...arr.map(pct)))+"%":"—";
- document.getElementById("scLatest").textContent=arr.length?`${arr[arr.length-1].points}/${arr[arr.length-1].max} (${Math.round(pct(arr[arr.length-1]))}%)`:"—";
- document.getElementById("scMean").textContent=arr.length?Math.round(arr.reduce((s,x)=>s+pct(x),0)/arr.length)+"%":"—";
- const chart=document.getElementById("scoreChart");
- const recent=arr.slice(-8).reverse();
- chart.innerHTML=recent.length?recent.map(x=>`<div><div style="display:flex;justify-content:space-between;gap:10px;font-size:.85rem"><span>${esc(x.date)} · ${esc(x.type)}</span><b>${Math.round(pct(x))}%</b></div><div class="progress"><span style="width:${Math.max(0,Math.min(100,pct(x)))}%"></span></div><div class="small">${esc(x.topic||"Без темы")}</div></div>`).join(""):`<p class="small">Добавь несколько результатов — здесь появится динамика.</p>`;
+ document.getElementById("scBest").textContent=arr.length?`${fmt(Math.max(...arr.map(pct)))}%`:"—";
+ const latest=arr[arr.length-1];document.getElementById("scLatest").textContent=latest?`${latest.subject}: ${resultLabel(latest)}`:"—";
+ document.getElementById("scMean").textContent=arr.length?`${fmt(arr.reduce((sum,x)=>sum+pct(x),0)/arr.length)}%`:"—";
+ const chart=document.getElementById("scoreChart"),recent=arr.slice(-8).reverse();
+ chart.innerHTML=recent.length?recent.map(x=>`<div><div style="display:flex;justify-content:space-between;gap:10px;font-size:.85rem"><span>${esc(x.date)} · ${esc(x.subject)}</span><b>${resultLabel(x)}</b></div><div class="progress"><span style="width:${Math.max(0,Math.min(100,pct(x)))}%"></span></div><div class="small">${esc(x.type||"Пробник")} · ${esc(x.topic||"Без названия")}</div></div>`).join(""):`<p class="small">Добавь несколько результатов — здесь появится динамика.</p>`;
  const tbody=document.getElementById("scoreRows");
- tbody.innerHTML=arr.length?arr.slice().reverse().map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.type)}</td><td>${esc(x.points)}/${esc(x.max)}</td><td>${Math.round(pct(x))}%</td><td>${esc([x.topic,x.notes].filter(Boolean).join(" · ")||"—")}</td><td><button class="btn" data-del-score="${esc(x.id)}">Удалить</button></td></tr>`).join(""):`<tr><td colspan="6" class="small">Пока нет результатов.</td></tr>`;
- tbody.querySelectorAll("[data-del-score]").forEach(b=>b.onclick=()=>{writeList("scores",readList("scores").filter(x=>x.id!==b.dataset.delScore));scoreRender()});
+ tbody.innerHTML=arr.length?arr.slice().reverse().map(x=>`<tr><td>${esc(x.date)}</td><td><span class="score-subject">${esc(x.subject||"Биология")}</span></td><td>${esc(x.type||"Пробник")}</td><td>${resultLabel(x)} (${Math.round(pct(x))}%)</td><td>${esc([x.topic,x.notes].filter(Boolean).join(" · ")||"—")}</td><td><div class="controls"><button class="btn" data-edit-score="${esc(x.id)}">Изменить</button><button class="btn" data-del-score="${esc(x.id)}">Удалить</button></div></td></tr>`).join(""):`<tr><td colspan="6" class="small">Пока нет пробников.</td></tr>`;
+ tbody.querySelectorAll("[data-del-score]").forEach(b=>b.onclick=()=>{if(confirm("Удалить эту запись о пробнике?")){writeList("scores",readList("scores").filter(x=>x.id!==b.dataset.delScore));scoreRender()}});
+ tbody.querySelectorAll("[data-edit-score]").forEach(b=>b.onclick=()=>scoreEdit(b.dataset.editScore));
+ document.querySelectorAll("[data-subject]").forEach(b=>b.classList.toggle("active",b.dataset.subject===activeScoreSubject));
 }
+function scoreEdit(id){
+ const x=readList("scores").find(x=>x.id===id);if(!x)return;
+ const dialog=document.getElementById("editDialog"),fields=document.getElementById("editDialogFields");
+ document.getElementById("editDialogTitle").textContent="Редактирование пробника ЕГЭ";
+ const subjects=["Русский язык","Профильная математика","Химия","Биология"],types=["Полный пробник","Тематический пробник","Часть варианта","Диагностика"];
+ fields.innerHTML=`<label>Предмет<select class="field" id="edScoreSubject">${subjects.map(v=>`<option ${v===(x.subject||"Биология")?"selected":""}>${v}</option>`).join("")}</select></label><label>Дата<input class="field" id="edScoreDate" type="date" value="${esc(x.date||todayISO())}"></label><label>Тип работы<select class="field" id="edScoreType">${types.map(v=>`<option ${v===(x.type||"Полный пробник")?"selected":""}>${v}</option>`).join("")}</select></label><label>Набрано первичных / баллов за задания<input class="field" id="edScorePoints" type="number" min="0" step="0.5" value="${esc(x.points)}"></label><label>Максимум первичных / баллов за задания<input class="field" id="edScoreMax" type="number" min="0.5" step="0.5" value="${esc(x.max)}"></label><label>Тестовый балл (если известен, из 100)<input class="field" id="edScoreTestPoints" type="number" min="0" max="100" step="1" value="${esc(x.testPoints??"")}"></label><label>Вариант / тема<input class="field" id="edScoreTopic" value="${esc(x.topic||"")}"></label><label>Ошибки и следующий шаг<textarea class="field" id="edScoreNotes">${esc(x.notes||"")}</textarea></label>`;
+ dialog.showModal();
+ document.getElementById("editDialogSave").onclick=()=>{
+  const pointsRaw=document.getElementById("edScorePoints").value,maxRaw=document.getElementById("edScoreMax").value,testRaw=document.getElementById("edScoreTestPoints").value,points=Number(pointsRaw),max=Number(maxRaw),testPoints=testRaw===""?null:Number(testRaw);
+  if(pointsRaw===""||maxRaw===""||!Number.isFinite(points)||!Number.isFinite(max)||points<0||max<=0||points>max){alert("Проверь баллы: максимум должен быть больше нуля, результат не выше максимума.");return}
+  if(testRaw!==""&&(!Number.isFinite(testPoints)||testPoints<0||testPoints>100)){alert("Тестовый балл должен быть от 0 до 100.");return}
+  const updated={...x,subject:document.getElementById("edScoreSubject").value,date:document.getElementById("edScoreDate").value||todayISO(),type:document.getElementById("edScoreType").value,points,max,testPoints,topic:document.getElementById("edScoreTopic").value.trim(),notes:document.getElementById("edScoreNotes").value.trim()};
+  writeList("scores",readList("scores").map(y=>y.id===id?updated:y));activeScoreSubject=updated.subject;dialog.close();scoreRender();
+ };
+}
+function scoreResetForm(){document.getElementById("scEditId").value="";["scPoints","scMax","scTestPoints","scTopic","scNotes"].forEach(id=>document.getElementById(id).value="");document.getElementById("scDate").value=todayISO();document.getElementById("scoreFormTitle").textContent="Добавить пробник";document.getElementById("saveScore").textContent="Сохранить пробник";document.getElementById("scCancelEdit").hidden=true}
 document.getElementById("saveScore").onclick=()=>{
- const points=Number(document.getElementById("scPoints").value), max=Number(document.getElementById("scMax").value);
- if(document.getElementById("scPoints").value===""||document.getElementById("scMax").value===""||!Number.isFinite(points)||!Number.isFinite(max)||points<0||max<=0||points>max){document.getElementById("scMsg").textContent="Проверь баллы: максимум должен быть больше нуля, результат — не выше максимума.";return}
- const obj={id:String(Date.now())+Math.random().toString(16).slice(2),date:document.getElementById("scDate").value||todayISO(),type:document.getElementById("scType").value,points,max,topic:document.getElementById("scTopic").value.trim(),notes:document.getElementById("scNotes").value.trim()};
- const arr=readList("scores");arr.push(obj);writeList("scores",arr);["scPoints","scMax","scTopic","scNotes"].forEach(id=>document.getElementById(id).value="");document.getElementById("scMsg").textContent="Результат сохранён";scoreRender();
+ const points=Number(document.getElementById("scPoints").value),max=Number(document.getElementById("scMax").value),testRaw=document.getElementById("scTestPoints").value,id=document.getElementById("scEditId").value;
+ if(document.getElementById("scPoints").value===""||document.getElementById("scMax").value===""||!Number.isFinite(points)||!Number.isFinite(max)||points<0||max<=0||points>max){document.getElementById("scMsg").textContent="Проверь баллы: максимум больше нуля, результат не выше максимума.";return}
+ const testPoints=testRaw===""?null:Number(testRaw);if(testRaw!==""&&(!Number.isFinite(testPoints)||testPoints<0||testPoints>100)){document.getElementById("scMsg").textContent="Тестовый балл должен быть от 0 до 100.";return}
+ const old=id?readList("scores").find(x=>x.id===id):null;const obj={...(old||{}),id:id||String(Date.now())+Math.random().toString(16).slice(2),subject:document.getElementById("scSubject").value,date:document.getElementById("scDate").value||todayISO(),type:document.getElementById("scType").value,points,max,testPoints,topic:document.getElementById("scTopic").value.trim(),notes:document.getElementById("scNotes").value.trim()};
+ const arr=readList("scores");if(id){const i=arr.findIndex(x=>x.id===id);if(i>=0)arr[i]=obj;else arr.push(obj)}else arr.push(obj);writeList("scores",arr);activeScoreSubject=obj.subject;scoreResetForm();document.getElementById("scMsg").textContent=id?"Изменения сохранены":"Пробник сохранён";scoreRender();
 };
-document.getElementById("exportScores").onclick=()=>downloadJson(readList("scores"),"monitoring-ballov.json");
+document.getElementById("scCancelEdit").onclick=()=>{scoreResetForm();document.getElementById("scMsg").textContent="Редактирование отменено"};
+document.getElementById("scoreTabs").onclick=e=>{const b=e.target.closest("[data-subject]");if(b){activeScoreSubject=b.dataset.subject;scoreRender()}};
+document.getElementById("exportScores").onclick=()=>downloadJson(readList("scores"),"rezultaty-probnikov-ege.json");
 function downloadJson(data,name){const a=document.createElement("a"),u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));a.href=u;a.download=name;a.click();URL.revokeObjectURL(u)}
+// Daily plan: one localStorage key per date keeps days independently syncable.
+const dayKey=d=>"day-plan-"+d;const dayRead=d=>{try{return JSON.parse(localStorage.getItem(prefix+dayKey(d))||"[]")}catch(e){return []}};const dayWrite=(d,a)=>{try{localStorage.setItem(prefix+dayKey(d),JSON.stringify(a));syncTouch(dayKey(d))}catch(e){};syncSchedule()};
+function dayRender(){const d=document.getElementById("dpViewDate").value||todayISO(),arr=dayRead(d).sort((a,b)=>(a.time||"").localeCompare(b.time||""));document.getElementById("dpHeading").textContent="План на "+new Date(d+"T12:00:00").toLocaleDateString("ru-RU",{weekday:"long",day:"numeric",month:"long"});const box=document.getElementById("dayCards");box.innerHTML=arr.length?arr.map(x=>`<article class="daycard ${x.done?"done":""}"><div class="daytime">${esc(x.time||"Без времени")}</div><div><b class="daytitle">${esc(x.title)}</b><div class="daydesc">${esc(x.desc||"")}</div>${x.source?`<div class="small">Из недельного плана: ${esc(x.source)}</div>`:""}<label class="small"><input type="checkbox" data-day-done="${esc(x.id)}" ${x.done?"checked":""}> Выполнено</label></div><div class="dayactions"><button class="btn" data-day-edit="${esc(x.id)}">Изменить</button><button class="btn" data-day-del="${esc(x.id)}">Удалить</button></div></article>`).join(""):`<p class="small">На этот день задач пока нет.</p>`;
+ box.querySelectorAll("[data-day-done]").forEach(el=>el.onchange=()=>{const a=dayRead(d),x=a.find(x=>x.id===el.dataset.dayDone);if(x)x.done=el.checked;dayWrite(d,a);dayRender()});box.querySelectorAll("[data-day-del]").forEach(b=>b.onclick=()=>{if(confirm("Удалить карточку из этого дня?")){dayWrite(d,dayRead(d).filter(x=>x.id!==b.dataset.dayDel));dayRender()}});box.querySelectorAll("[data-day-edit]").forEach(b=>b.onclick=()=>{const x=dayRead(d).find(x=>x.id===b.dataset.dayEdit);if(!x)return;const dialog=document.getElementById("editDialog"),fields=document.getElementById("editDialogFields");document.getElementById("editDialogTitle").textContent="Редактирование задачи";fields.innerHTML=`<label>Дата<input class="field" id="edDate" type="date" value="${esc(d)}"></label><label>Время<input class="field" id="edTime" type="time" value="${esc(x.time||"")}"></label><label>Название<input class="field" id="edTitle" value="${esc(x.title)}"></label><label>Описание<textarea class="field" id="edDesc">${esc(x.desc||"")}</textarea></label>`;dialog.showModal();document.getElementById("editDialogSave").onclick=()=>{const nd=document.getElementById("edDate").value||d,updated={...x,time:document.getElementById("edTime").value,title:document.getElementById("edTitle").value.trim(),desc:document.getElementById("edDesc").value.trim()};if(!updated.title){alert("Укажи название задачи");return}const old=dayRead(d).filter(y=>y.id!==x.id);dayWrite(d,old);dayWrite(nd,[...dayRead(nd),updated]);dialog.close();dayRender()}});
+}
+function fillRoadmapSelect(){const sel=document.getElementById("dpRoadmap");roadmap.forEach((r,i)=>r.tasks.forEach((t,j)=>{const o=document.createElement("option");o.value=JSON.stringify({title:t,source:`неделя ${r.week}: ${r.topic}`});o.textContent=`Нед. ${r.week} · ${r.topic} — ${t}`;sel.appendChild(o)}))}
+document.getElementById("dpAdd").onclick=()=>{const d=document.getElementById("dpDate").value||todayISO(),time=document.getElementById("dpTime").value,title=document.getElementById("dpTitle").value.trim(),desc=document.getElementById("dpDesc").value.trim(),src=document.getElementById("dpRoadmap").value;let chosen=null;if(src){try{chosen=JSON.parse(src)}catch(e){}}if(!title&&!chosen){document.getElementById("dpMsg").textContent="Введи название или выбери задачу из недельного плана.";return}const a=dayRead(d);a.push({id:String(Date.now())+Math.random().toString(16).slice(2),time,title:title||chosen.title,desc:desc||"",source:chosen?.source||"",done:false});dayWrite(d,a);document.getElementById("dpViewDate").value=d;document.getElementById("dpTitle").value="";document.getElementById("dpDesc").value="";document.getElementById("dpRoadmap").value="";document.getElementById("dpMsg").textContent="Карточка добавлена";dayRender()};document.getElementById("dpViewDate").onchange=dayRender;fillRoadmapSelect();dayRender();
+// Notes and to-dos
+const noteRead=()=>readList("notes-list"),noteWrite=a=>writeList("notes-list",a),todoRead=()=>readList("todos"),todoWrite=a=>writeList("todos",a);
+function notesRender(){const arr=noteRead().sort((a,b)=>b.created.localeCompare(a.created));document.getElementById("notesList").innerHTML=arr.length?arr.map(x=>`<article class="note-item"><b>${esc(x.title||"Заметка")}</b><div>${esc(x.body)}</div><small>${esc(new Date(x.created).toLocaleString("ru-RU"))}</small><div class="controls" style="margin-top:8px"><button class="btn" data-note-edit="${esc(x.id)}">Изменить</button><button class="btn" data-note-del="${esc(x.id)}">Удалить</button></div></article>`).join(""):`<p class="small">Заметок пока нет.</p>`;document.querySelectorAll("[data-note-del]").forEach(b=>b.onclick=()=>{noteWrite(noteRead().filter(x=>x.id!==b.dataset.noteDel));notesRender()});document.querySelectorAll("[data-note-edit]").forEach(b=>b.onclick=()=>{const x=noteRead().find(x=>x.id===b.dataset.noteEdit);if(!x)return;const dialog=document.getElementById("editDialog"),fields=document.getElementById("editDialogFields");document.getElementById("editDialogTitle").textContent="Редактирование заметки";fields.innerHTML=`<label>Заголовок<input class="field" id="edNoteTitle" value="${esc(x.title||"")}"></label><label>Текст заметки<textarea class="field" id="edNoteBody">${esc(x.body||"")}</textarea></label>`;dialog.showModal();document.getElementById("editDialogSave").onclick=()=>{const title=document.getElementById("edNoteTitle").value.trim(),body=document.getElementById("edNoteBody").value.trim();noteWrite(noteRead().map(y=>y.id===x.id?{...y,title,body}:y));dialog.close();notesRender()}});const todos=todoRead();document.getElementById("todoList").innerHTML=todos.length?todos.map(x=>`<div class="todo-row ${x.done?"done":""}"><input type="checkbox" data-todo-check="${esc(x.id)}" ${x.done?"checked":""}><span style="flex:1">${esc(x.text)}</span><button class="btn" data-todo-plan="${esc(x.id)}">В план</button><button class="btn" data-todo-edit="${esc(x.id)}">Изменить</button><button class="btn" data-todo-del="${esc(x.id)}">×</button></div>`).join(""):`<p class="small">Список дел пуст.</p>`;document.querySelectorAll("[data-todo-check]").forEach(el=>el.onchange=()=>{todoWrite(todoRead().map(x=>x.id===el.dataset.todoCheck?{...x,done:el.checked}:x));notesRender()});document.querySelectorAll("[data-todo-del]").forEach(b=>b.onclick=()=>{todoWrite(todoRead().filter(x=>x.id!==b.dataset.todoDel));notesRender()});document.querySelectorAll("[data-todo-edit]").forEach(b=>b.onclick=()=>{const x=todoRead().find(x=>x.id===b.dataset.todoEdit),text=prompt("Изменить пункт списка",x?.text||"");if(text!==null&&text.trim()){todoWrite(todoRead().map(y=>y.id===x.id?{...y,text:text.trim()}:y));notesRender()}});document.querySelectorAll("[data-todo-plan]").forEach(b=>b.onclick=()=>{const x=todoRead().find(x=>x.id===b.dataset.todoPlan);if(!x)return;const d=document.getElementById("dpViewDate").value||todayISO();dayWrite(d,[...dayRead(d),{id:String(Date.now())+Math.random().toString(16).slice(2),time:"",title:x.text,desc:"Добавлено из списка дел",source:"Список дел",done:false}]);document.getElementById("dpViewDate").value=d;dayRender();location.hash="#dayplan"})}
+document.getElementById("noteAdd").onclick=()=>{const title=document.getElementById("noteTitle").value.trim(),body=document.getElementById("noteBody").value.trim();if(!title&&!body){document.getElementById("noteMsg").textContent="Добавь заголовок или текст заметки";return}noteWrite([...noteRead(),{id:String(Date.now())+Math.random().toString(16).slice(2),title,body,created:new Date().toISOString()}]);document.getElementById("noteTitle").value="";document.getElementById("noteBody").value="";document.getElementById("noteMsg").textContent="Заметка сохранена";notesRender()};document.getElementById("todoAdd").onclick=()=>{const el=document.getElementById("todoText"),text=el.value.trim();if(!text)return;todoWrite([...todoRead(),{id:String(Date.now())+Math.random().toString(16).slice(2),text,done:false}]);el.value="";notesRender()};document.getElementById("todoText").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("todoAdd").click()});notesRender();
+
+
 workoutRender();scoreRender();
 
 </script>
@@ -237,6 +273,14 @@ workoutRender();scoreRender();
 /* ===== Supabase sync ===== */
 const SYNC_META_KEY="_sync_meta";
 let syncTimer=null;
+// Every local mutation gets a fresh per-key timestamp so Supabase can resolve edits correctly.
+function syncTouch(key){
+  try{
+    const meta=JSON.parse(localStorage.getItem(prefix+SYNC_META_KEY)||"{}");
+    meta[key]=Math.max(Date.now(),Number(meta[key]||0)+1);
+    localStorage.setItem(prefix+SYNC_META_KEY,JSON.stringify(meta));
+  }catch(e){console.warn("Не удалось обновить метку синхронизации",e)}
+}
 function syncReadLocal(){
   const values={}, updated={};
   const meta=JSON.parse(localStorage.getItem(prefix+SYNC_META_KEY)||"{}");
@@ -304,7 +348,7 @@ async function syncNow(){
   syncWriteLocal(merged);
   const {error:upErr}=await supabaseClient.from("app_state").upsert({user_id:user.id,data:merged,updated_at:new Date().toISOString()},{onConflict:"user_id"});
   if(upErr){syncSetStatus("Ошибка сохранения",upErr.message);return}
-  render(); workoutRender(); scoreRender();
+  render(); workoutRender(); scoreRender(); if(typeof dayRender==="function")dayRender(); if(typeof notesRender==="function")notesRender();
   syncSetStatus("Синхронизировано",new Date().toLocaleString("ru-RU"));
 }
 async function syncSchedule(){
