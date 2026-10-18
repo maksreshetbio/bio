@@ -1,4 +1,4 @@
-const CACHE = "olymbio-pwa-v4";
+const CACHE = "olymbio-pwa-v3";
 const ASSETS = [
   "./",
   "./index.html",
