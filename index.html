@@ -23,6 +23,11 @@ a{color:#a6e3b8}
 @media print{body{background:#fff;color:#111}.card,.week,.stat,.task,.checkline,.callout,.cod{background:#fff;color:#111}.footer{background:#fff}.schedule th{background:#eee;color:#111}}
 
 .daycards{display:grid;gap:10px}.daycard{display:grid;grid-template-columns:90px 1fr auto;gap:12px;align-items:start;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:14px}.daycard.done .daytitle{text-decoration:line-through;color:var(--muted)}.daytime{font-size:1.05rem;font-weight:850;color:var(--green)}.daydesc{color:var(--muted);white-space:pre-wrap}.dayactions{display:flex;gap:6px;flex-wrap:wrap}.subject-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.subject-chip{border:1px solid var(--line);border-radius:999px;padding:6px 11px;background:var(--card);cursor:pointer}.subject-chip.active{background:#20392a;border-color:var(--green2);color:#a6e3b8}.score-subject{font-size:.8rem;padding:3px 7px;border-radius:7px;background:#20392a;color:#a6e3b8}.todo-row{display:flex;gap:9px;align-items:flex-start;padding:10px;border-bottom:1px solid var(--line)}.todo-row input{margin-top:6px}.todo-row.done span{text-decoration:line-through;color:var(--muted)}dialog{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:18px;width:min(560px,calc(100% - 24px));padding:22px}dialog::backdrop{background:#0009}.modal-fields{display:grid;gap:12px}.modal-fields label{display:grid;gap:5px}.note-item{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:9px;white-space:pre-wrap}.note-item small{color:var(--muted)}
+
+.day-planner{display:grid;gap:12px}.day-toolbar{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap}.day-toolbar label{display:grid;gap:5px}.day-summary{font-weight:800;color:#a6e3b8;background:#20392a;padding:8px 12px;border-radius:10px}.quick-add{display:flex;gap:8px}.quick-add .field{flex:1;min-width:0}.task-options{border:1px solid var(--line);border-radius:10px;padding:10px 12px}.task-options summary{cursor:pointer;font-weight:700}.task-option-fields{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}.daycard{grid-template-columns:100px minmax(0,1fr);gap:10px}.daycard .day-main{min-width:0}.daycard .dayactions{grid-column:2}.daycard .daytitle{overflow-wrap:anywhere}.daycard .daydesc{margin-top:4px}.daycard .day-meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:4px 0}.priority{font-size:.75rem;font-weight:800;border-radius:6px;padding:2px 7px}.priority.high{background:#512b2b;color:#ffb5a9}.priority.low{background:#26362c;color:#9aada1}.priority.normal{background:#20392a;color:#a6e3b8}.daycard.done{opacity:.78}.daycard.done .daytitle{text-decoration:line-through}.dayactions .btn{padding:6px 9px;font-size:.85rem}.day-note{border-top:1px solid var(--line);padding-top:14px;display:grid;gap:6px}.day-note textarea{min-height:68px}.daycard .daytime{font-size:.95rem}.daycard .daytime small{display:block;font-size:.75rem;color:var(--muted);font-weight:500}@media(max-width:600px){.daycard{grid-template-columns:1fr}.daycard .dayactions{grid-column:1}.quick-add{align-items:stretch}.quick-add .btn{white-space:nowrap}.task-option-fields{grid-template-columns:1fr}.day-toolbar{align-items:stretch}.day-toolbar label,.day-toolbar .field{width:100%}}
+
+.week-tools{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px}.week-notes-label{display:none!important}.week-goal-label,.week-notes-label{display:grid;gap:7px;font-weight:750}.week-notes-label textarea{min-height:78px}.weekly-rhythm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.rhythm-day{--day:#b23b36;background:var(--card);border:2px solid var(--day);border-radius:16px;overflow:hidden;min-width:0}.rhythm-day-head{padding:10px 12px;background:color-mix(in srgb,var(--day) 10%,var(--card));color:var(--day);font-weight:850}.rhythm-day-body{padding:10px;display:grid;gap:8px}.rhythm-item{border:1px solid var(--line);border-radius:10px;padding:8px;display:grid;gap:6px;background:var(--card)}.rhythm-item-top{display:flex;gap:6px;align-items:center}.rhythm-item input,.rhythm-item textarea{width:100%;min-width:0}.rhythm-item textarea{min-height:42px}.rhythm-actions{display:flex;gap:5px;flex-wrap:wrap}.rhythm-actions .btn{padding:5px 8px;font-size:.82rem}.rhythm-empty{color:var(--muted);font-size:.85rem}.rhythm-view .rhythm-item input,.rhythm-view .rhythm-item textarea{border-color:transparent;background:transparent;padding:2px;pointer-events:none;resize:none}.rhythm-view .rhythm-item{background:transparent}.rhythm-view .rhythm-edit-only{display:none!important}.rhythm-day:nth-child(1){--day:#b23b36}.rhythm-day:nth-child(2){--day:#858585}.rhythm-day:nth-child(3){--day:#2ebfae}.rhythm-day:nth-child(4){--day:#a5bd43}.rhythm-day:nth-child(5){--day:#ed873b}.rhythm-day:nth-child(6){--day:#929292}.rhythm-day:nth-child(7){--day:#7e8518}.rhythm-day:nth-child(7){grid-column:span 1}.rhythm-day:nth-child(8){grid-column:span 2;--day:#b23b36}.rhythm-day:nth-child(8) .rhythm-day-body{min-height:130px}.rhythm-day:nth-child(8) textarea{min-height:120px}
+@media(max-width:760px){.weekly-rhythm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.week-tools{grid-template-columns:1fr}.rhythm-day:nth-child(8){grid-column:span 2}}@media(max-width:480px){.weekly-rhythm-grid{grid-template-columns:1fr}.rhythm-day:nth-child(7),.rhythm-day:nth-child(8){grid-column:span 1}}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +37,7 @@ a{color:#a6e3b8}
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 </head><body>
 <header class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Личный учебный кабинет · 2026—2027</div><h1>Олимпиадная<br>биология</h1><p>Рабочий план подготовки к ВсОШ по биологии и экологии до сентября 2027 года: недельный календарь, темы, задания, контрольные точки и чек-листы.</p><span class="pill">🌿 Биология — приоритет</span><span class="pill">🔬 Практика каждую неделю</span><span class="pill">🎯 Цель — сильный результат</span></div><div class="glass"><small>Плановый период</small><b>12 месяцев</b><small>Октябрь 2026 — сентябрь 2027</small><div style="margin-top:15px"><small>Прогресс по чек-листам</small><div class="progress" style="background:#ffffff35;margin-top:7px"><span id="hp"></span></div><small id="hpt">0%</small></div></div></div></header>
-<nav><div class="wrap nav"><a href="#start">Старт</a><a href="#sync">Синхронизация</a><a href="#week">Расписание</a><a href="#roadmap">План по неделям</a><a href="#codifier">Кодификатор</a><a href="#method">Методика</a><a href="#review">Контроль</a><a href="#workouts">Тренировки</a><a href="#dayplan">План дня</a><a href="#notes">Заметки и дела</a><a href="#scores">Пробники ЕГЭ</a></div></nav>
+<nav><div class="wrap nav"><a href="#start">Старт</a><a href="#sync">Синхронизация</a><a href="#week">Базовый ритм недели</a><a href="#roadmap">План по неделям</a><a href="#codifier">Кодификатор</a><a href="#method">Методика</a><a href="#review">Контроль</a><a href="#workouts">Тренировки</a><a href="#dayplan">План дня</a><a href="#notes">Заметки и дела</a><a href="#scores">Пробники ЕГЭ</a></div></nav>
 <main class="wrap">
 <section id="start" class="section"><div class="head"><div><h2>Твой рабочий кабинет</h2><p>Отмечай сделанное — прогресс сохранится в этом браузере.</p></div><div class="controls"><button class="btn" id="export">Экспорт прогресса</button><button class="btn" onclick="window.print()">Печать / PDF</button><button class="btn" id="reset">Сбросить чек-листы</button></div></div><div class="card"><div class="stats"><div class="stat"><b id="done">0</b><span>выполнено</span></div><div class="stat"><b id="total">0</b><span>всего пунктов</span></div><div class="stat"><b id="pct">0%</b><span>общий прогресс</span></div><div class="stat"><b>80%</b><span>ориентир перехода</span></div></div><div class="progress" style="margin-top:14px"><span id="mp"></span></div><p class="small">Отмечай пункт только после самостоятельного выполнения и проверки. Процент — ориентир, а не самоцель.</p></div><div class="callout" style="margin-top:13px"><b>Как пользоваться:</b> выбери текущую неделю, выполни задания и поставь галочки. Если не получилось — запиши ошибку, возьми подсказку и попробуй снова. В конце недели проверь критерий готовности. Если результат слабый, повтори тему, не удваивая нагрузку.</div></section>
 <section id="sync" class="section">
@@ -59,15 +64,9 @@ a{color:#a6e3b8}
     </div>
   </div>
 </section>
-<section id="week" class="section"><div class="head"><div><h2>Полное расписание недели</h2><p>Школа, дорога, зал, репетиторы, домашка, отдых и олимпиадная подготовка.</p></div></div><div class="card"><div class="callout"><b>Основной ритм:</b> понедельник и вторник — школьные дела; среда и четверг — биология; пятница — зал и экология; суббота — главные олимпиадные блоки; воскресенье — репетитор, зал и только лёгкое повторение.</div><div class="tablewrap" style="margin-top:14px"><table class="schedule"><thead><tr><th>День</th><th>Время</th><th>Блок</th><th>Как использовать</th></tr></thead><tbody>
-<tr><td>Пн</td><td>После школы, ориентир 18:40</td><td>Дорога, еда, отдых</td><td>Школа до 18:10; дорога до 30 минут.</td></tr><tr><td>Пн</td><td>18:40–19:30</td><td>Школьная домашка</td><td>Сначала задания на завтра и срочные дедлайны.</td></tr><tr><td>Пн</td><td>19:30–20:15</td><td>Онлайн-школа / задания репетиторов</td><td>Профмат, русский и домашка по срокам.</td></tr><tr><td>Пн</td><td>20:15–22:00</td><td>Ужин, отдых, подготовка ко сну</td><td>Не добавлять сюда олимпиады.</td></tr>
-<tr><td>Вт</td><td>До 16:50</td><td>Дорога, перекус, отдых</td><td>Школа до 16:20.</td></tr><tr><td>Вт</td><td>17:00–18:00</td><td>Домашка / химия</td><td>Не ставить олимпиадную биологию.</td></tr><tr><td>Вт</td><td>18:00–18:45</td><td>Ужин и подготовка</td><td>Оставить буфер.</td></tr><tr><td>Вт</td><td>19:00–20:00</td><td>Репетитор по химии</td><td>Фиксированное занятие.</td></tr><tr><td>Вт</td><td>20:10–21:00</td><td>Домашка по химии / онлайн-школа</td><td>Если устал — только срочное.</td></tr>
-<tr><td>Ср</td><td>До 15:55</td><td>Дорога и перекус</td><td>Школа до 15:25.</td></tr><tr><td>Ср</td><td>16:15–17:30</td><td>Спортзал</td><td>Тренировка вместе с дорогой; сдвигай при необходимости.</td></tr><tr><td>Ср</td><td>18:00–19:00</td><td>Биология — теория</td><td>35–40 минут изучения, затем воспроизведение по памяти.</td></tr><tr><td>Ср</td><td>20:00–21:00</td><td>Школьная домашка / онлайн-школа</td><td>Оставь время на еду и отдых после зала.</td></tr>
-<tr><td>Чт</td><td>До 17:50</td><td>Дорога и перекус</td><td>Школа до 17:20.</td></tr><tr><td>Чт</td><td>18:15–19:15</td><td>Биология — задачи</td><td>Сначала решай без конспекта, потом сверяй каждый шаг.</td></tr><tr><td>Чт</td><td>20:00–21:00</td><td>Школьная домашка / задания репетиторов</td><td>Выбирай ближайшие сроки.</td></tr>
-<tr><td>Пт</td><td>До 15:00</td><td>Дорога домой и еда</td><td>Школа до 14:30.</td></tr><tr><td>Пт</td><td>15:30–16:45</td><td>Спортзал</td><td>Тренировка и дорога.</td></tr><tr><td>Пт</td><td>17:15–18:00</td><td>Экология</td><td>Одна задача, график или таблица с письменным выводом.</td></tr><tr><td>Пт</td><td>19:00–20:30</td><td>Домашка / онлайн-школа</td><td>Не превращай пятницу в марафон.</td></tr>
-<tr><td>Сб</td><td>09:00–10:00</td><td>Подъём и завтрак</td><td>Выходной подъём около 9–10.</td></tr><tr><td>Сб</td><td>10:30–12:00</td><td>Биология — углублённая теория</td><td>Схемы, рисунки, сравнение групп, механизмы.</td></tr><tr><td>Сб</td><td>12:00–13:00</td><td>Обед и отдых</td><td>Полноценный перерыв.</td></tr><tr><td>Сб</td><td>13:00–14:15</td><td>Биология — задачи и ошибки</td><td>Самостоятельно → проверить → журнал ошибок.</td></tr><tr><td>Сб</td><td>14:30–15:00</td><td>Экология — практика</td><td>Одна задача или анализ данных.</td></tr>
-<tr><td>Вс</td><td>Утро</td><td>Завтрак и подготовка к репетитору</td><td>Без тяжёлой самостоятельной учёбы.</td></tr><tr><td>Вс</td><td>Ориентир 13:15–17:30</td><td>Дорога + репетитор по биологии</td><td>Занятие 14:00–16:45; уточни фактическую дорогу.</td></tr><tr><td>Вс</td><td>После возвращения</td><td>Еда и отдых</td><td>Сначала восстановиться.</td></tr><tr><td>Вс</td><td>Вечер, гибко</td><td>Спортзал</td><td>Около часа плюс дорога; сдвигай по обстоятельствам.</td></tr><tr><td>Вс</td><td>20–30 минут, если есть силы</td><td>Лёгкое повторение</td><td>Карточки или устное объяснение; при усталости пропусти.</td></tr>
-</tbody></table></div><p class="small">Это базовая версия: блоки после школы приблизительные. Не отнимай время у сна ради «догоняния». Целевой сон в будни — 22:00–06:30.</p></div></section>
+<section id="week" class="section"><div class="head"><div><h2>Базовый ритм недели</h2><p>Редактируемый шаблон привычной недели. Изменения сохраняются и синхронизируются с твоим аккаунтом.</p></div><div class="controls"><button class="btn" id="weekViewToggle">Режим просмотра</button><button class="btn primary" id="weekAddTask">+ Добавить занятие</button></div></div>
+<div class="week-tools card"><label class="week-goal-label">🎯 Цель недели<input class="field" id="weekGoal" placeholder="Например: закрыть тему по генетике и решить 30 задач"></label><label class="week-notes-label">📝 Заметки на неделю<textarea class="field" id="weekNotes" placeholder="Идеи, важные события, дела без конкретного дня"></textarea></label><div class="small" id="weekSaveStatus" aria-live="polite">Автосохранение включено</div></div>
+<div id="weeklyRhythmGrid" class="weekly-rhythm-grid"></div><p class="small">Это шаблон, а не конкретные задачи на дату. Кнопка «В план дня» добавляет выбранное занятие в дневной план без удаления и не создаёт повторную задачу с тем же названием и временем.</p></section>
 <section id="roadmap" class="section"><div class="head"><div><h2>План по неделям</h2><p>92 тематических блока: теория, практика и критерий готовности.</p></div></div><div class="controls" style="margin-bottom:13px"><select class="field" id="month"><option value="all">Все месяцы</option></select><input class="field" id="search" placeholder="Найти тему или задание…"><button class="btn" id="expand">Развернуть видимые</button><button class="btn" id="collapse">Свернуть все</button></div><div id="weeks" class="weeklist"></div></section>
 <section id="codifier" class="section"><div class="head"><div><h2>Кодификатор тем</h2><p>Коды для конспектов, карточек и журнала ошибок.</p></div></div><div class="card"><div class="callout"><b>Пример:</b> <span class="code">GEN-03</span> — генетика, обратные задачи и анализирующее скрещивание. Записывай код рядом с задачей и ошибкой. Это внутренняя система планирования, не официальный кодификатор Минпросвещения или ФИПИ.</div><div class="codgrid" style="margin-top:14px">
 <div class="cod"><h3><span class="code">GEN</span> Генетика</h3><p>GEN-01 базовые понятия и моногибридные скрещивания<br>GEN-02 дигибридные скрещивания и вероятности<br>GEN-03 обратные задачи и анализирующее скрещивание<br>GEN-04 сцепление и кроссинговер<br>GEN-05 хромосомная теория и наследование пола<br>GEN-06 популяционная генетика и частоты аллелей</p><details><summary>Что уметь</summary>Записывать генотипы и гаметы, считать вероятности, объяснять сцепление и отличать независимое наследование от сцепленного.</details></div>
@@ -124,17 +123,39 @@ a{color:#a6e3b8}
   </div>
 </section>
 <section id="dayplan" class="section">
- <div class="head"><div><h2>План дня</h2><p>Карточки с временем и описанием. Задачи сохраняются за выбранной датой; невыполненные не переносятся автоматически.</p></div></div>
- <div class="grid"><div class="card s4"><h3>Добавить в план</h3><div class="modal-fields">
- <label>Дата<input class="field" type="date" id="dpDate"></label><label>Время<input class="field" type="time" id="dpTime" value="16:00"></label>
- <label>Название<input class="field" id="dpTitle" placeholder="Например, вариант по химии"></label><label>Описание<textarea class="field" id="dpDesc" placeholder="Что сделать, сколько времени, материалы"></textarea></label>
- <label>Или выбрать задачу из недельного плана<select class="field" id="dpRoadmap"><option value="">Не выбирать</option></select></label>
- <button class="btn primary" id="dpAdd">Добавить карточку</button><span class="small" id="dpMsg"></span></div></div>
- <div class="card s8"><div class="head"><div><h3 id="dpHeading">Задачи на сегодня</h3><p class="small">Меняй дату, чтобы посмотреть другой день.</p></div><label>День<input class="field" type="date" id="dpViewDate"></label></div><div id="dayCards" class="daycards"><p class="small">Пока нет задач на этот день.</p></div></div></div>
+  <div class="head"><div><h2>План дня</h2><p>Всё на день — в одной карточке. Задачи без времени остаются в своём дне, пока ты сам их не перенесёшь.</p></div></div>
+  <div class="card day-planner">
+    <div class="day-toolbar">
+      <label>Выбранный день<input class="field" type="date" id="dpViewDate"></label>
+      <div class="day-summary" id="daySummary">0 из 0 · 0%</div>
+    </div>
+    <h3 id="dpHeading">План на сегодня</h3>
+    <div class="quick-add">
+      <input class="field" id="dpTitle" placeholder="Быстро добавить задачу…" aria-label="Название задачи">
+      <button class="btn primary" id="dpAdd">Добавить</button>
+    </div>
+    <details class="task-options">
+      <summary>Время, описание и приоритет (необязательно)</summary>
+      <div class="modal-fields task-option-fields">
+        <label>Время начала<input class="field" type="time" id="dpTime"></label>
+        <label>Время окончания<input class="field" type="time" id="dpEndTime"></label>
+        <label>Приоритет<select class="field" id="dpPriority"><option value="normal">Обычный</option><option value="high">Высокий</option><option value="low">Низкий</option></select></label>
+        <label>Описание<textarea class="field" id="dpDesc" placeholder="Что сделать, материалы, детали…"></textarea></label>
+        <label>Из недельного плана<select class="field" id="dpRoadmap"><option value="">Не выбирать</option></select></label>
+      </div>
+    </details>
+    <p class="small" id="dpMsg" role="status" aria-live="polite"></p>
+    <div id="dayCards" class="daycards"><p class="small">Пока нет задач на этот день.</p></div>
+    <div class="day-note">
+      <label for="dayNote">Заметка к этому дню</label>
+      <textarea class="field" id="dayNote" placeholder="Что важно помнить сегодня…"></textarea>
+      <div class="small" id="dayNoteStatus" role="status" aria-live="polite">Заметка сохраняется для выбранной даты.</div>
+    </div>
+  </div>
 </section>
 <section id="notes" class="section"><div class="head"><div><h2>Заметки и список дел</h2><p>Отдельные заметки для мыслей и список задач с отметками выполнения.</p></div></div>
  <div class="grid"><div class="card s6"><h3>Новая заметка</h3><label>Заголовок<input class="field" id="noteTitle" placeholder="Например, разобрать ошибки пробника" style="width:100%"></label><label>Текст<textarea class="field" id="noteBody" placeholder="Запиши идеи, ошибки или важные мысли"></textarea></label><p><button class="btn primary" id="noteAdd">Сохранить заметку</button> <span class="small" id="noteMsg"></span></p><div id="notesList"></div></div>
- <div class="card s6"><h3>Список дел</h3><div class="controls"><input class="field" id="todoText" placeholder="Что нужно сделать?" style="flex:1;min-width:180px"><button class="btn primary" id="todoAdd">Добавить</button></div><p class="small">При желании пункт можно добавить в план дня.</p><div id="todoList"></div></div></div>
+ <div class="card s6"><h3>Задачи теперь в плане дня</h3><p class="muted">Список дел объединён с карточками дней. Выбери дату в разделе «План дня», чтобы добавить задачу, отметить выполнение или перенести её.</p><a class="btn" href="#dayplan">Открыть план дня</a><p class="small">Старые пункты списка дел будут перенесены в план текущего дня при первом открытии обновлённой версии.</p></div></div>
 </section>
 <section id="scores" class="section">
   <div class="head"><div><h2>Трекер пробников ЕГЭ</h2><p>Отдельная история по русскому языку, профильной математике, химии и биологии.</p></div></div>
@@ -176,7 +197,75 @@ box.appendChild(d)});attach();progress()}
 function attach(){document.querySelectorAll("[data-check]").forEach(el=>{if(el.dataset.bound)return;el.dataset.bound="1";el.addEventListener("change",()=>{put(el.dataset.check,el.checked);let lab=el.closest(".task");if(lab)lab.classList.toggle("done",el.checked);let det=el.closest("details.week");if(det){let inputs=[...det.querySelectorAll("[data-check]")],s=det.querySelector(".status");if(s)s.textContent=inputs.length&&inputs.every(x=>x.checked)?"✓ Выполнено":"Открыть план"}progress()})})}
 function progress(){let all=roadmap.reduce((n,r,i)=>n+r.tasks.length,0),done=0;roadmap.forEach((r,i)=>r.tasks.forEach((_,j)=>{if(get(`w-${i}-${j}`))done++}));document.querySelectorAll('input[data-check]').forEach(x=>{if(!x.dataset.check.startsWith("w-")){all++;if(get(x.dataset.check))done++}});let p=all?Math.round(done/all*100):0;document.getElementById("done").textContent=done;document.getElementById("total").textContent=all;document.getElementById("pct").textContent=p+"%";document.getElementById("mp").style.width=p+"%";document.getElementById("hp").style.width=p+"%";document.getElementById("hpt").textContent=`${done} из ${all} пунктов · ${p}%`}
 let sel=document.getElementById("month");[...new Set(roadmap.map(r=>r.month))].forEach(m=>{let o=document.createElement("option");o.value=m;o.textContent=m;sel.appendChild(o)});sel.addEventListener("change",render);document.getElementById("search").addEventListener("input",render);document.getElementById("expand").onclick=()=>document.querySelectorAll("#weeks details").forEach(d=>d.open=true);document.getElementById("collapse").onclick=()=>document.querySelectorAll("#weeks details").forEach(d=>d.open=false);
-document.getElementById("reset").onclick=()=>{if(!confirm("Сбросить только отметки чек-листов? Заметки, пробники, тренировки и план дня останутся."))return;let keys=[];for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(!k||!k.startsWith(prefix))continue;const short=k.slice(prefix.length);if(/^w-\d+-\d+$/.test(short)||/^r[1-4]$/.test(short)||short.startsWith("workout-week-"))keys.push(k)}keys.forEach(k=>localStorage.removeItem(k));render();document.querySelectorAll("[data-check]").forEach(x=>x.checked=false);document.querySelectorAll("[data-workout-check]").forEach(x=>x.checked=false);progress();workoutRender();scoreRender();if(typeof dayRender==="function")dayRender();if(typeof notesRender==="function")notesRender();syncSchedule()};
+document.getElementById("reset").onclick=()=>{if(!confirm("Сбросить только отметки чек-листов? Заметки, пробники, тренировки и план дня останутся."))return;let keys=[];for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(!k||!k.startsWith(prefix))continue;const short=k.slice(prefix.length);if(/^w-\d+-\d+$/.test(short)||/^r[1-4]$/.test(short)||short.startsWith("workout-week-"))keys.push(k)}keys.forEach(k=>localStorage.removeItem(k));render();document.querySelectorAll("[data-check]").forEach(x=>x.checked=false);document.querySelectorAll("[data-workout-check]").forEach(x=>x.checked=false);progress();
+
+
+workoutRender();scoreRender();if(typeof dayRender==="function")dayRender();if(typeof notesRender==="function")notesRender();syncSchedule()};
+
+// Editable weekly rhythm. Stored as a single key so the existing Supabase sync merges it atomically.
+const rhythmDays=["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
+const rhythmColors=["#b23b36","#858585","#2ebfae","#a5bd43","#ed873b","#929292","#7e8518"];
+const rhythmDefault=[
+[{time:"18:10–18:40",title:"Дорога домой, еда и отдых",desc:"Школа заканчивается около 18:10; дорога до 30 минут. Восстановиться после школы."},{time:"18:40–19:30",title:"Школьная домашка",desc:"Сначала задания на завтра и срочные дедлайны."},{time:"19:30–20:15",title:"Онлайн-школа и задания репетиторов",desc:"Профильная математика, русский язык и другие задания по срокам."},{time:"20:15–22:00",title:"Ужин, отдых и подготовка ко сну",desc:"Не добавлять дополнительную олимпиадную нагрузку."}],
+[{time:"До 16:50",title:"Дорога домой, перекус и отдых",desc:"Школа заканчивается около 16:20."},{time:"17:00–18:00",title:"Домашка или химия",desc:"Не ставить олимпиадную биологию."},{time:"18:00–18:45",title:"Ужин и подготовка к занятию",desc:"Пауза перед репетитором."},{time:"19:00–20:00",title:"Репетитор по химии",desc:"Фиксированное занятие."},{time:"20:10–21:00",title:"Домашка по химии или онлайн-школа",desc:"Если устал — только срочные задания."}],
+[{time:"До 15:55",title:"Дорога и перекус",desc:"Школа заканчивается около 15:25."},{time:"16:15–17:30",title:"Спортзал",desc:"Учитывает тренировку и дорогу."},{time:"17:30–18:00",title:"Еда и отдых после тренировки",desc:"Не начинать учёбу сразу после зала."},{time:"18:00–19:00",title:"Биология — теория",desc:"Изучить тему и воспроизвести материал по памяти."},{time:"20:00–21:00",title:"Школьная домашка или онлайн-школа",desc:"Выбрать самое срочное."}],
+[{time:"До 17:50",title:"Дорога домой и перекус",desc:"Школа заканчивается около 17:20."},{time:"18:15–19:15",title:"Олимпиадная биология — задачи",desc:"Сначала решить самостоятельно без конспекта, затем проверить ход решения и разобрать ошибки."},{time:"19:15–20:00",title:"Ужин и перерыв",desc:"Восстановиться перед оставшимися делами."},{time:"20:00–21:00",title:"Школьная домашка или задания репетиторов",desc:"Ориентироваться на ближайшие дедлайны."}],
+[{time:"До 15:00",title:"Дорога домой и еда",desc:"Школа заканчивается около 14:30."},{time:"15:30–16:45",title:"Спортзал",desc:"Тренировка с учётом дороги."},{time:"17:15–18:00",title:"Экология",desc:"Одна задача, анализ графика или таблицы с письменным выводом."},{time:"19:00–20:30",title:"Домашка или онлайн-школа",desc:"Не превращать пятницу в перегруженный учебный день."}],
+[{time:"09:00–10:00",title:"Подъём и завтрак",desc:"Спокойно начать день."},{time:"10:30–12:00",title:"Углублённая теория по биологии",desc:"Схемы, рисунки, сравнение групп организмов и разбор механизмов."},{time:"12:00–13:00",title:"Обед и отдых",desc:"Полноценный перерыв."},{time:"13:00–14:15",title:"Биологические задачи и работа над ошибками",desc:"Решить самостоятельно, проверить и записать ошибки."},{time:"14:30–15:00",title:"Экология — практика",desc:"Одна задача или анализ данных."}],
+[{time:"Утро",title:"Завтрак и подготовка к репетитору",desc:"Без тяжёлой самостоятельной учёбы."},{time:"13:15–17:30",title:"Дорога и репетитор по биологии",desc:"Само занятие ориентировочно 14:00–16:45; время дороги приблизительное."},{time:"После возвращения",title:"Еда и отдых",desc:"Не пытаться сразу компенсировать пропущенные занятия."},{time:"Вечер",title:"Спортзал — гибкое время",desc:"С учётом репетитора и дороги; при усталости можно перенести."},{time:"20–30 минут вечером",title:"Лёгкое повторение — по желанию",desc:"Карточки или устное объяснение темы. Если устал — пропустить."}]
+];
+function rhythmRead(){
+  try {
+    const saved=JSON.parse(localStorage.getItem(prefix+"weekly-rhythm")||"null");
+    if(saved && Array.isArray(saved.days) && saved.days.length===7) return saved;
+  } catch(e) { console.warn("Не удалось прочитать базовый ритм недели",e); }
+  return {days:rhythmDefault.map((day,i)=>day.map((item,j)=>({...item,id:`rhythm-${i}-${j}`}))),goal:"",notes:""};
+}
+function rhythmSave(data){
+  try {
+    localStorage.setItem(prefix+"weekly-rhythm",JSON.stringify(data));
+    if(typeof syncTouch==="function") syncTouch("weekly-rhythm");
+    if(typeof syncSchedule==="function") syncSchedule();
+    const status=document.getElementById("weekSaveStatus");
+    if(status) status.textContent="Сохранено · "+new Date().toLocaleTimeString("ru-RU",{hour:"2-digit",minute:"2-digit"});
+    return true;
+  } catch(e) {
+    const status=document.getElementById("weekSaveStatus");
+    if(status) status.textContent="Ошибка сохранения — экспортируй данные и попробуй снова";
+    console.error("Не удалось сохранить базовый ритм недели",e); return false;
+  }
+}
+let rhythmViewOnly=false;
+function rhythmRender(){
+  const data=rhythmRead(), grid=document.getElementById("weeklyRhythmGrid");
+  if(!grid) { console.error("Не найден контейнер #weeklyRhythmGrid"); return; }
+  const goal=document.getElementById("weekGoal"), notes=document.getElementById("weekNotes");
+  if(goal) goal.value=data.goal||"";
+  if(notes) notes.value=data.notes||"";
+  grid.classList.toggle("rhythm-view",rhythmViewOnly);
+  const dayCards=data.days.map((items,i)=>`<section class="rhythm-day" style="--day:${rhythmColors[i]}"><div class="rhythm-day-head">${rhythmDays[i]}</div><div class="rhythm-day-body">${items.length?items.map((x,j)=>`<article class="rhythm-item"><div class="rhythm-item-top"><input class="field" data-rhythm-time="${i}:${j}" aria-label="Время, ${rhythmDays[i]}" placeholder="Время (необязательно)" value="${esc(x.time||"")}"></div><input class="field" data-rhythm-title="${i}:${j}" aria-label="Занятие" placeholder="Название занятия" value="${esc(x.title||"")}"><textarea class="field" data-rhythm-desc="${i}:${j}" aria-label="Описание занятия" placeholder="Комментарий (необязательно)">${esc(x.desc||"")}</textarea><div class="rhythm-actions rhythm-edit-only"><button type="button" class="btn" data-rhythm-copy="${i}:${j}">В план дня</button><button type="button" class="btn" data-rhythm-up="${i}:${j}" ${j===0?"disabled":""}>↑</button><button type="button" class="btn" data-rhythm-down="${i}:${j}" ${j===items.length-1?"disabled":""}>↓</button><button type="button" class="btn" data-rhythm-del="${i}:${j}">Удалить</button></div></article>`).join(""):`<div class="rhythm-empty">Пока нет занятий</div>`}<button type="button" class="btn rhythm-edit-only" data-rhythm-add="${i}">+ Добавить занятие</button></div></section>`);
+  const notesCard=`<section class="rhythm-day rhythm-week-notes" style="--day:${rhythmColors[0]}"><div class="rhythm-day-head">Заметки</div><div class="rhythm-day-body"><textarea class="field" id="weekNotesCard" placeholder="Идеи, важные события, дела без конкретного дня">${esc(data.notes||"")}</textarea></div></section>`;
+  grid.innerHTML=dayCards.join("")+notesCard;
+  function saveField(el,field){const [i,j]=el.dataset[field].split(":").map(Number),d=rhythmRead(),key=field.replace("rhythm-","");d.days[i][j][key]=el.value;rhythmSave(d);}
+  grid.querySelectorAll("[data-rhythm-time]").forEach(el=>el.onchange=()=>saveField(el,"rhythm-time"));
+  grid.querySelectorAll("[data-rhythm-title]").forEach(el=>el.onchange=()=>saveField(el,"rhythm-title"));
+  grid.querySelectorAll("[data-rhythm-desc]").forEach(el=>el.onchange=()=>saveField(el,"rhythm-desc"));
+  grid.querySelectorAll("[data-rhythm-add]").forEach(b=>b.onclick=()=>{const d=rhythmRead();d.days[Number(b.dataset.rhythmAdd)].push({id:makeId(),time:"",title:"",desc:""});if(rhythmSave(d))rhythmRender();});
+  grid.querySelectorAll("[data-rhythm-del]").forEach(b=>b.onclick=()=>{const [i,j]=b.dataset.rhythmDel.split(":").map(Number),d=rhythmRead();d.days[i].splice(j,1);if(rhythmSave(d))rhythmRender();});
+  grid.querySelectorAll("[data-rhythm-up],[data-rhythm-down]").forEach(b=>b.onclick=()=>{const [i,j]=(b.dataset.rhythmUp||b.dataset.rhythmDown).split(":").map(Number),d=rhythmRead(),k=b.dataset.rhythmUp?j-1:j+1;if(k<0||k>=d.days[i].length)return;[d.days[i][j],d.days[i][k]]=[d.days[i][k],d.days[i][j]];if(rhythmSave(d))rhythmRender();});
+  grid.querySelectorAll("[data-rhythm-copy]").forEach(b=>b.onclick=()=>{const [i,j]=b.dataset.rhythmCopy.split(":").map(Number),x=rhythmRead().days[i][j],date=document.getElementById("dpViewDate")?.value||todayISO(),a=dayRead(date),startTime=(x.time||"").split("–")[0]||"";if(a.some(t=>(t.title||"").trim()===(x.title||"").trim()&&(t.time||"")===startTime)){alert("Похожая задача уже есть в плане этого дня.");return;}a.push({id:makeId(),time:startTime,endTime:(x.time||"").split("–")[1]||"",title:x.title||"Занятие из базового ритма",desc:x.desc||"",priority:"normal",done:false,source:"Базовый ритм недели"});if(dayWrite(date,a)){if(typeof dayRender==="function")dayRender();const status=document.getElementById("weekSaveStatus");if(status)status.textContent="Добавлено в план на "+date;}});
+  const noteCard=document.getElementById("weekNotesCard");
+  if(noteCard) noteCard.onchange=()=>{const d=rhythmRead();d.notes=noteCard.value;if(rhythmSave(d)&&notes)notes.value=d.notes;};
+}
+const weekGoalEl=document.getElementById("weekGoal");
+if(weekGoalEl) weekGoalEl.onchange=()=>{const d=rhythmRead();d.goal=weekGoalEl.value;rhythmSave(d);};
+const weekNotesEl=document.getElementById("weekNotes");
+if(weekNotesEl) weekNotesEl.onchange=()=>{const d=rhythmRead();d.notes=weekNotesEl.value;rhythmSave(d);rhythmRender();};
+const weekAddEl=document.getElementById("weekAddTask");
+if(weekAddEl) weekAddEl.onclick=()=>{const d=rhythmRead();d.days[0].push({id:makeId(),time:"",title:"",desc:""});if(rhythmSave(d))rhythmRender();};
+const weekToggleEl=document.getElementById("weekViewToggle");
+if(weekToggleEl) weekToggleEl.onclick=()=>{rhythmViewOnly=!rhythmViewOnly;weekToggleEl.textContent=rhythmViewOnly?"Режим редактирования":"Режим просмотра";if(weekAddEl)weekAddEl.style.display=rhythmViewOnly?"none":"";rhythmRender();};
+rhythmRender();
 document.getElementById("export").onclick=()=>{let data={exportedAt:new Date().toISOString(),checks:{},notes:{},workouts:readList("workouts"),scores:readList("scores")};for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(k&&k.startsWith(prefix))data.checks[k.slice(prefix.length)]=localStorage.getItem(k)}["n1","n2","n3"].forEach(id=>data.notes[id]=document.getElementById(id).value);let a=document.createElement("a"),u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));a.href=u;a.download="olimpiadnaya-biologiya-progress.json";a.click();URL.revokeObjectURL(u)};
 document.getElementById("saveNotes").onclick=()=>{["n1","n2","n3"].forEach(id=>put("note-"+id,document.getElementById(id).value));document.getElementById("savedmsg").textContent="Сохранено"};
 ["n1","n2","n3"].forEach(id=>{try{document.getElementById(id).value=localStorage.getItem(prefix+"note-"+id)||""}catch(e){}});render();
@@ -187,7 +276,7 @@ const writeList = (key, val) => { try { localStorage.setItem(prefix+key, JSON.st
 const todayISO = () => { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; };
 document.getElementById("woDate").value = todayISO();
 document.getElementById("scDate").value = todayISO();
-document.getElementById("dpDate").value = todayISO(); document.getElementById("dpViewDate").value = todayISO();
+document.getElementById("dpViewDate").value = todayISO();
 function workoutRender(){
  const arr=readList("workouts").sort((a,b)=>b.date.localeCompare(a.date));
  document.getElementById("woCount").textContent=arr.length;
@@ -253,16 +342,93 @@ document.getElementById("scoreTabs").onclick=e=>{const b=e.target.closest("[data
 document.getElementById("exportScores").onclick=()=>downloadJson(readList("scores"),"rezultaty-probnikov-ege.json");
 function downloadJson(data,name){const a=document.createElement("a"),u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));a.href=u;a.download=name;a.click();URL.revokeObjectURL(u)}
 // Daily plan: one localStorage key per date keeps days independently syncable.
-const dayKey=d=>"day-plan-"+d;const dayRead=d=>{try{return JSON.parse(localStorage.getItem(prefix+dayKey(d))||"[]")}catch(e){return []}};const dayWrite=(d,a)=>{try{localStorage.setItem(prefix+dayKey(d),JSON.stringify(a));syncTouch(dayKey(d))}catch(e){};syncSchedule()};
-function dayRender(){const d=document.getElementById("dpViewDate").value||todayISO(),arr=dayRead(d).sort((a,b)=>(a.time||"").localeCompare(b.time||""));document.getElementById("dpHeading").textContent="План на "+new Date(d+"T12:00:00").toLocaleDateString("ru-RU",{weekday:"long",day:"numeric",month:"long"});const box=document.getElementById("dayCards");box.innerHTML=arr.length?arr.map(x=>`<article class="daycard ${x.done?"done":""}"><div class="daytime">${esc(x.time||"Без времени")}</div><div><b class="daytitle">${esc(x.title)}</b><div class="daydesc">${esc(x.desc||"")}</div>${x.source?`<div class="small">Из недельного плана: ${esc(x.source)}</div>`:""}<label class="small"><input type="checkbox" data-day-done="${esc(x.id)}" ${x.done?"checked":""}> Выполнено</label></div><div class="dayactions"><button class="btn" data-day-edit="${esc(x.id)}">Изменить</button><button class="btn" data-day-del="${esc(x.id)}">Удалить</button></div></article>`).join(""):`<p class="small">На этот день задач пока нет.</p>`;
- box.querySelectorAll("[data-day-done]").forEach(el=>el.onchange=()=>{const a=dayRead(d),x=a.find(x=>x.id===el.dataset.dayDone);if(x)x.done=el.checked;dayWrite(d,a);dayRender()});box.querySelectorAll("[data-day-del]").forEach(b=>b.onclick=()=>{if(confirm("Удалить карточку из этого дня?")){dayWrite(d,dayRead(d).filter(x=>x.id!==b.dataset.dayDel));dayRender()}});box.querySelectorAll("[data-day-edit]").forEach(b=>b.onclick=()=>{const x=dayRead(d).find(x=>x.id===b.dataset.dayEdit);if(!x)return;const dialog=document.getElementById("editDialog"),fields=document.getElementById("editDialogFields");document.getElementById("editDialogTitle").textContent="Редактирование задачи";fields.innerHTML=`<label>Дата<input class="field" id="edDate" type="date" value="${esc(d)}"></label><label>Время<input class="field" id="edTime" type="time" value="${esc(x.time||"")}"></label><label>Название<input class="field" id="edTitle" value="${esc(x.title)}"></label><label>Описание<textarea class="field" id="edDesc">${esc(x.desc||"")}</textarea></label>`;dialog.showModal();document.getElementById("editDialogSave").onclick=()=>{const nd=document.getElementById("edDate").value||d,updated={...x,time:document.getElementById("edTime").value,title:document.getElementById("edTitle").value.trim(),desc:document.getElementById("edDesc").value.trim()};if(!updated.title){alert("Укажи название задачи");return}const old=dayRead(d).filter(y=>y.id!==x.id);dayWrite(d,old);dayWrite(nd,[...dayRead(nd),updated]);dialog.close();dayRender()}});
+const dayKey=d=>"day-plan-"+d;
+const dayRead=d=>{try{const v=JSON.parse(localStorage.getItem(prefix+dayKey(d))||"[]");return Array.isArray(v)?v:[]}catch(e){return []}};
+const dayWrite=(d,a)=>{try{localStorage.setItem(prefix+dayKey(d),JSON.stringify(a));if(typeof syncTouch==="function")syncTouch(dayKey(d));if(typeof syncSchedule==="function")syncSchedule();return true}catch(e){console.error("Не удалось сохранить план дня",e);document.getElementById("dpMsg").textContent="Не удалось сохранить задачу. Освободи место в хранилище и попробуй экспортировать данные.";return false}};
+const dayNoteKey=d=>"day-note-"+d;
+const dayNoteRead=d=>{try{return localStorage.getItem(prefix+dayNoteKey(d))||""}catch(e){return ""}};
+const dayNoteWrite=(d,value)=>{try{localStorage.setItem(prefix+dayNoteKey(d),value);if(typeof syncTouch==="function")syncTouch(dayNoteKey(d));if(typeof syncSchedule==="function")syncSchedule();document.getElementById("dayNoteStatus").textContent="Заметка сохранена";return true}catch(e){document.getElementById("dayNoteStatus").textContent="Ошибка сохранения заметки";return false}};
+const makeId=()=>"task-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,10);
+function migrateLegacyTodos(){
+  const flag=prefix+"day-plan-migration-v1";
+  try{
+    const legacy=JSON.parse(localStorage.getItem(prefix+"todos")||"[]");
+    if(localStorage.getItem(flag)==="1"&&(!Array.isArray(legacy)||!legacy.length))return;
+    if(Array.isArray(legacy)&&legacy.length){
+      const d=todayISO(),existing=dayRead(d),known=new Set(existing.map(x=>x.id));
+      const migrated=legacy.filter(x=>!known.has("legacy-"+x.id)).map(x=>({id:"legacy-"+(x.id||makeId()),time:"",endTime:"",title:String(x.text||"Задача без названия"),desc:"Перенесено из прежнего списка дел",priority:"normal",done:!!x.done,source:"Старый список дел"}));
+      if(migrated.length&&!dayWrite(d,[...existing,...migrated]))throw new Error("Не удалось сохранить перенесённые задачи");
+      // Keep a recoverable copy before clearing the legacy list to prevent duplicate display.
+      localStorage.setItem(prefix+"backup-todos-before-day-plan-v1",JSON.stringify(legacy));
+      localStorage.setItem(prefix+"todos","[]");if(typeof syncTouch==="function")syncTouch("todos");if(typeof syncSchedule==="function")syncSchedule();
+    }
+    localStorage.setItem(flag,"1");
+  }catch(e){console.error("Миграция старого списка дел не завершена",e);document.getElementById("dpMsg").textContent="Не удалось перенести старые задачи автоматически. Исходные данные не удалены."}
 }
-function fillRoadmapSelect(){const sel=document.getElementById("dpRoadmap");roadmap.forEach((r,i)=>r.tasks.forEach((t,j)=>{const o=document.createElement("option");o.value=JSON.stringify({title:t,source:`неделя ${r.week}: ${r.topic}`});o.textContent=`Нед. ${r.week} · ${r.topic} — ${t}`;sel.appendChild(o)}))}
-document.getElementById("dpAdd").onclick=()=>{const d=document.getElementById("dpDate").value||todayISO(),time=document.getElementById("dpTime").value,title=document.getElementById("dpTitle").value.trim(),desc=document.getElementById("dpDesc").value.trim(),src=document.getElementById("dpRoadmap").value;let chosen=null;if(src){try{chosen=JSON.parse(src)}catch(e){}}if(!title&&!chosen){document.getElementById("dpMsg").textContent="Введи название или выбери задачу из недельного плана.";return}const a=dayRead(d);a.push({id:String(Date.now())+Math.random().toString(16).slice(2),time,title:title||chosen.title,desc:desc||"",source:chosen?.source||"",done:false});dayWrite(d,a);document.getElementById("dpViewDate").value=d;document.getElementById("dpTitle").value="";document.getElementById("dpDesc").value="";document.getElementById("dpRoadmap").value="";document.getElementById("dpMsg").textContent="Карточка добавлена";dayRender()};document.getElementById("dpViewDate").onchange=dayRender;fillRoadmapSelect();dayRender();
+function dayRender(){
+ const d=document.getElementById("dpViewDate").value||todayISO(),arr=dayRead(d).slice();
+ document.getElementById("dpHeading").textContent="План на "+new Date(d+"T12:00:00").toLocaleDateString("ru-RU",{weekday:"long",day:"numeric",month:"long"});
+ const done=arr.filter(x=>x.done).length,pct=arr.length?Math.round(done/arr.length*100):0;
+ document.getElementById("daySummary").textContent=`${done} из ${arr.length} · ${pct}%`;
+ const box=document.getElementById("dayCards");
+ const timed=arr.filter(x=>x.time),untimed=arr.filter(x=>!x.time);
+ const renderTask=x=>`<article class="daycard ${x.done?"done":""}" data-task-id="${esc(x.id)}">
+  <div class="daytime">${esc(x.time||"Без времени")}${x.endTime?`<small>до ${esc(x.endTime)}</small>`:""}</div>
+  <div class="day-main"><b class="daytitle">${esc(x.title||"Задача без названия")}</b>
+   <div class="day-meta"><span class="priority ${["high","low","normal"].includes(x.priority)?x.priority:"normal"}">${x.priority==="high"?"Высокий приоритет":x.priority==="low"?"Низкий приоритет":"Обычный приоритет"}</span>${x.source?`<span class="small">${esc(x.source)}</span>`:""}</div>
+   ${x.desc?`<div class="daydesc">${esc(x.desc)}</div>`:""}
+   <label class="small"><input type="checkbox" data-day-done="${esc(x.id)}" ${x.done?"checked":""}> Выполнено</label>
+  </div><div class="dayactions">
+   <button class="btn" data-day-up="${esc(x.id)}" aria-label="Переместить выше" title="Выше">↑</button><button class="btn" data-day-down="${esc(x.id)}" aria-label="Переместить ниже" title="Ниже">↓</button>
+   <button class="btn" data-day-edit="${esc(x.id)}">Изменить / перенести</button><button class="btn" data-day-del="${esc(x.id)}">Удалить</button>
+  </div></article>`;
+ box.innerHTML=(timed.length?`<h4>По времени</h4>${timed.map(renderTask).join("")}`:"")+(untimed.length?`<h4>Без времени</h4>${untimed.map(renderTask).join("")}`:"")||`<p class="small">На этот день задач пока нет. Добавь первую выше — время необязательно.</p>`;
+ box.querySelectorAll("[data-day-done]").forEach(el=>el.onchange=()=>{const a=dayRead(d),x=a.find(x=>x.id===el.dataset.dayDone);if(x)x.done=el.checked;if(dayWrite(d,a))dayRender()});
+ box.querySelectorAll("[data-day-del]").forEach(btn=>btn.onclick=()=>{if(confirm("Удалить задачу? Это действие нельзя отменить.")){if(dayWrite(d,dayRead(d).filter(x=>x.id!==btn.dataset.dayDel)))dayRender()}});
+ box.querySelectorAll("[data-day-up],[data-day-down]").forEach(btn=>btn.onclick=()=>{const a=dayRead(d),i=a.findIndex(x=>x.id===(btn.dataset.dayUp||btn.dataset.dayDown));if(i<0)return;const j=btn.dataset.dayUp?i-1:i+1;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];if(dayWrite(d,a))dayRender()});
+ box.querySelectorAll("[data-day-edit]").forEach(btn=>btn.onclick=()=>{
+  const x=dayRead(d).find(x=>x.id===btn.dataset.dayEdit);if(!x)return;
+  const dialog=document.getElementById("editDialog"),fields=document.getElementById("editDialogFields");
+  document.getElementById("editDialogTitle").textContent="Редактирование задачи";
+  fields.innerHTML=`<label>Дата<input class="field" id="edDate" type="date" value="${esc(d)}"></label><label>Время начала<input class="field" id="edTime" type="time" value="${esc(x.time||"")}"></label><label>Время окончания<input class="field" id="edEndTime" type="time" value="${esc(x.endTime||"")}"></label><label>Название<input class="field" id="edTitle" value="${esc(x.title||"")}" required></label><label>Описание<textarea class="field" id="edDesc">${esc(x.desc||"")}</textarea></label><label>Приоритет<select class="field" id="edPriority"><option value="normal" ${!x.priority||x.priority==="normal"?"selected":""}>Обычный</option><option value="high" ${x.priority==="high"?"selected":""}>Высокий</option><option value="low" ${x.priority==="low"?"selected":""}>Низкий</option></select></label>`;
+  dialog.showModal();
+  document.getElementById("editDialogSave").onclick=()=>{
+   const nd=document.getElementById("edDate").value||d,title=document.getElementById("edTitle").value.trim();
+   if(!title){alert("Укажи название задачи");return}
+   const updated={...x,time:document.getElementById("edTime").value,endTime:document.getElementById("edEndTime").value,title,desc:document.getElementById("edDesc").value.trim(),priority:document.getElementById("edPriority").value};
+   if(nd===d){const a=dayRead(d).map(y=>y.id===x.id?updated:y);if(!dayWrite(d,a))return}
+   else {const old=dayRead(d).filter(y=>y.id!==x.id);if(!dayWrite(d,old))return;const target=dayRead(nd);if(!target.some(y=>y.id===x.id))target.push(updated);if(!dayWrite(nd,target)){dayWrite(d,[...old,x]);return}}
+   dialog.close();dayRender();document.getElementById("dpMsg").textContent=nd===d?"Изменения сохранены":"Задача перенесена на "+nd;
+  };
+ });
+ document.getElementById("dayNote").value=dayNoteRead(d);
+ document.getElementById("dayNoteStatus").textContent="Заметка сохраняется отдельно для каждой даты";
+}
+function fillRoadmapSelect(){const sel=document.getElementById("dpRoadmap");roadmap.forEach(r=>r.tasks.forEach(t=>{const o=document.createElement("option");o.value=JSON.stringify({title:t,source:`неделя ${r.week}: ${r.topic}`});o.textContent=`Нед. ${r.week} · ${r.topic} — ${t}`;sel.appendChild(o)}))}
+function addDayTask(){
+ const d=document.getElementById("dpViewDate").value||todayISO(),title=document.getElementById("dpTitle").value.trim(),time=document.getElementById("dpTime").value,endTime=document.getElementById("dpEndTime").value,desc=document.getElementById("dpDesc").value.trim(),priority=document.getElementById("dpPriority").value,src=document.getElementById("dpRoadmap").value;
+ let chosen=null;if(src){try{chosen=JSON.parse(src)}catch(e){}}
+ if(!title&&!chosen){document.getElementById("dpMsg").textContent="Введи название задачи.";document.getElementById("dpTitle").focus();return}
+ const a=dayRead(d);a.push({id:makeId(),time,endTime,title:title||chosen.title,desc,priority,source:chosen?.source||"",done:false});
+ if(!dayWrite(d,a))return;
+ document.getElementById("dpTitle").value="";document.getElementById("dpTime").value="";document.getElementById("dpEndTime").value="";document.getElementById("dpDesc").value="";document.getElementById("dpPriority").value="normal";document.getElementById("dpRoadmap").value="";
+ document.getElementById("dpMsg").textContent="Задача добавлена";dayRender();document.getElementById("dpTitle").focus();
+}
+document.getElementById("dpAdd").onclick=addDayTask;
+document.getElementById("dpTitle").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();addDayTask()}});
+document.getElementById("dpViewDate").onchange=dayRender;
+let dayNoteSaveTimer=null;
+document.getElementById("dayNote").addEventListener("input",()=>{const d=document.getElementById("dpViewDate").value||todayISO();document.getElementById("dayNoteStatus").textContent="Сохранение…";clearTimeout(dayNoteSaveTimer);dayNoteSaveTimer=setTimeout(()=>dayNoteWrite(d,document.getElementById("dayNote").value),350)});
+fillRoadmapSelect();
+if(!document.getElementById("dpViewDate").value)document.getElementById("dpViewDate").value=todayISO();
+document.getElementById("dpDate")?.remove();
+setTimeout(()=>{migrateLegacyTodos();dayRender()},0);
+dayRender();
+
 // Notes and to-dos
 const noteRead=()=>readList("notes-list"),noteWrite=a=>writeList("notes-list",a),todoRead=()=>readList("todos"),todoWrite=a=>writeList("todos",a);
-function notesRender(){const arr=noteRead().sort((a,b)=>b.created.localeCompare(a.created));document.getElementById("notesList").innerHTML=arr.length?arr.map(x=>`<article class="note-item"><b>${esc(x.title||"Заметка")}</b><div>${esc(x.body)}</div><small>${esc(new Date(x.created).toLocaleString("ru-RU"))}</small><div class="controls" style="margin-top:8px"><button class="btn" data-note-edit="${esc(x.id)}">Изменить</button><button class="btn" data-note-del="${esc(x.id)}">Удалить</button></div></article>`).join(""):`<p class="small">Заметок пока нет.</p>`;document.querySelectorAll("[data-note-del]").forEach(b=>b.onclick=()=>{noteWrite(noteRead().filter(x=>x.id!==b.dataset.noteDel));notesRender()});document.querySelectorAll("[data-note-edit]").forEach(b=>b.onclick=()=>{const x=noteRead().find(x=>x.id===b.dataset.noteEdit);if(!x)return;const dialog=document.getElementById("editDialog"),fields=document.getElementById("editDialogFields");document.getElementById("editDialogTitle").textContent="Редактирование заметки";fields.innerHTML=`<label>Заголовок<input class="field" id="edNoteTitle" value="${esc(x.title||"")}"></label><label>Текст заметки<textarea class="field" id="edNoteBody">${esc(x.body||"")}</textarea></label>`;dialog.showModal();document.getElementById("editDialogSave").onclick=()=>{const title=document.getElementById("edNoteTitle").value.trim(),body=document.getElementById("edNoteBody").value.trim();noteWrite(noteRead().map(y=>y.id===x.id?{...y,title,body}:y));dialog.close();notesRender()}});const todos=todoRead();document.getElementById("todoList").innerHTML=todos.length?todos.map(x=>`<div class="todo-row ${x.done?"done":""}"><input type="checkbox" data-todo-check="${esc(x.id)}" ${x.done?"checked":""}><span style="flex:1">${esc(x.text)}</span><button class="btn" data-todo-plan="${esc(x.id)}">В план</button><button class="btn" data-todo-edit="${esc(x.id)}">Изменить</button><button class="btn" data-todo-del="${esc(x.id)}">×</button></div>`).join(""):`<p class="small">Список дел пуст.</p>`;document.querySelectorAll("[data-todo-check]").forEach(el=>el.onchange=()=>{todoWrite(todoRead().map(x=>x.id===el.dataset.todoCheck?{...x,done:el.checked}:x));notesRender()});document.querySelectorAll("[data-todo-del]").forEach(b=>b.onclick=()=>{todoWrite(todoRead().filter(x=>x.id!==b.dataset.todoDel));notesRender()});document.querySelectorAll("[data-todo-edit]").forEach(b=>b.onclick=()=>{const x=todoRead().find(x=>x.id===b.dataset.todoEdit),text=prompt("Изменить пункт списка",x?.text||"");if(text!==null&&text.trim()){todoWrite(todoRead().map(y=>y.id===x.id?{...y,text:text.trim()}:y));notesRender()}});document.querySelectorAll("[data-todo-plan]").forEach(b=>b.onclick=()=>{const x=todoRead().find(x=>x.id===b.dataset.todoPlan);if(!x)return;const d=document.getElementById("dpViewDate").value||todayISO();dayWrite(d,[...dayRead(d),{id:String(Date.now())+Math.random().toString(16).slice(2),time:"",title:x.text,desc:"Добавлено из списка дел",source:"Список дел",done:false}]);document.getElementById("dpViewDate").value=d;dayRender();location.hash="#dayplan"})}
-document.getElementById("noteAdd").onclick=()=>{const title=document.getElementById("noteTitle").value.trim(),body=document.getElementById("noteBody").value.trim();if(!title&&!body){document.getElementById("noteMsg").textContent="Добавь заголовок или текст заметки";return}noteWrite([...noteRead(),{id:String(Date.now())+Math.random().toString(16).slice(2),title,body,created:new Date().toISOString()}]);document.getElementById("noteTitle").value="";document.getElementById("noteBody").value="";document.getElementById("noteMsg").textContent="Заметка сохранена";notesRender()};document.getElementById("todoAdd").onclick=()=>{const el=document.getElementById("todoText"),text=el.value.trim();if(!text)return;todoWrite([...todoRead(),{id:String(Date.now())+Math.random().toString(16).slice(2),text,done:false}]);el.value="";notesRender()};document.getElementById("todoText").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("todoAdd").click()});notesRender();
+function notesRender(){const arr=noteRead().sort((a,b)=>(b.created||"").localeCompare(a.created||""));document.getElementById("notesList").innerHTML=arr.length?arr.map(x=>`<article class="note-item"><b>${esc(x.title||"Заметка")}</b><div>${esc(x.body||"")}</div><small>${esc(new Date(x.created||Date.now()).toLocaleString("ru-RU"))}</small><div class="controls" style="margin-top:8px"><button class="btn" data-note-edit="${esc(x.id)}">Изменить</button><button class="btn" data-note-del="${esc(x.id)}">Удалить</button></div></article>`).join(""):`<p class="small">Заметок пока нет.</p>`;document.querySelectorAll("[data-note-del]").forEach(b=>b.onclick=()=>{noteWrite(noteRead().filter(x=>x.id!==b.dataset.noteDel));notesRender()});document.querySelectorAll("[data-note-edit]").forEach(b=>b.onclick=()=>{const x=noteRead().find(x=>x.id===b.dataset.noteEdit);if(!x)return;const dialog=document.getElementById("editDialog"),fields=document.getElementById("editDialogFields");document.getElementById("editDialogTitle").textContent="Редактирование заметки";fields.innerHTML=`<label>Заголовок<input class="field" id="edNoteTitle" value="${esc(x.title||"")}"></label><label>Текст заметки<textarea class="field" id="edNoteBody">${esc(x.body||"")}</textarea></label>`;dialog.showModal();document.getElementById("editDialogSave").onclick=()=>{const title=document.getElementById("edNoteTitle").value.trim(),body=document.getElementById("edNoteBody").value.trim();noteWrite(noteRead().map(y=>y.id===x.id?{...y,title,body}:y));dialog.close();notesRender()}})}
+document.getElementById("noteAdd").onclick=()=>{const title=document.getElementById("noteTitle").value.trim(),body=document.getElementById("noteBody").value.trim();if(!title&&!body){document.getElementById("noteMsg").textContent="Добавь заголовок или текст заметки";return}noteWrite([...noteRead(),{id:String(Date.now())+Math.random().toString(16).slice(2),title,body,created:new Date().toISOString()}]);document.getElementById("noteTitle").value="";document.getElementById("noteBody").value="";document.getElementById("noteMsg").textContent="Заметка сохранена";notesRender()};notesRender();
 
 
 workoutRender();scoreRender();
@@ -346,9 +512,10 @@ async function syncNow(){
   if(!cloud){ merged=local; }
   else { merged=syncMerge(local,cloud); }
   syncWriteLocal(merged);
+  if(typeof migrateLegacyTodos==="function")migrateLegacyTodos();
   const {error:upErr}=await supabaseClient.from("app_state").upsert({user_id:user.id,data:merged,updated_at:new Date().toISOString()},{onConflict:"user_id"});
   if(upErr){syncSetStatus("Ошибка сохранения",upErr.message);return}
-  render(); workoutRender(); scoreRender(); if(typeof dayRender==="function")dayRender(); if(typeof notesRender==="function")notesRender();
+  render(); workoutRender(); scoreRender(); if(typeof dayRender==="function")dayRender(); if(typeof notesRender==="function")notesRender(); if(typeof rhythmRender==="function")rhythmRender();
   syncSetStatus("Синхронизировано",new Date().toLocaleString("ru-RU"));
 }
 async function syncSchedule(){
